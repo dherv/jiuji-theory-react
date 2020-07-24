@@ -13,6 +13,6 @@ export const themeBlueLight = {
   hoverBorder: "1px solid transparent",
 };
 
-export const themeBlueInput = {
+export const themeBlueField = {
   border: "1px solid rgba(18, 70, 246, 0.1)",
 };

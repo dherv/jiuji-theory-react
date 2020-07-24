@@ -1,10 +1,10 @@
 import React from "react";
-import Input from "../components/Input";
+import FormField from "../components/FormField";
 import { action } from "@storybook/addon-actions";
 
 export default {
-  component: Input,
-  title: "Input",
+  component: FormField,
+  title: "FormField",
   excludeStories: /.*Data$/,
 };
 
@@ -12,4 +12,4 @@ const actionsData = {
   onChange: action("onChange"),
 };
 
-export const Default = () => <Input {...actionsData} />;
+export const Default = () => <FormField {...actionsData} />;
