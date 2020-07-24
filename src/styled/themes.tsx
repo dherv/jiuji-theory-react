@@ -12,3 +12,7 @@ export const themeBlueLight = {
   hoverColor: "#1246F6",
   hoverBorder: "1px solid transparent",
 };
+
+export const themeBlueInput = {
+  border: "1px solid rgba(18, 70, 246, 0.1)",
+};
