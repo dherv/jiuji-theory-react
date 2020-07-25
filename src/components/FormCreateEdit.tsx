@@ -1,5 +1,12 @@
 import React, { FC } from "react";
-import { Formik, Field, Form, FormikHelpers } from "formik";
+import {
+  Formik,
+  Field,
+  Form,
+  FormikHelpers,
+  FieldArray,
+  ErrorMessage,
+} from "formik";
 import FormField from "./FormField";
 import styled from "styled-components";
 import Button from "./Button";
@@ -27,6 +34,7 @@ const FormCreateEdit: FC<{}> = () => {
         position: "",
         categorie: "",
         technique: "",
+        steps: [],
       }}
       onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
         setTimeout(() => {
@@ -132,7 +140,50 @@ const FormCreateEdit: FC<{}> = () => {
 
           <FormBlock>
             <FormLabel htmlFor="lastName">steps</FormLabel>
-            <FormField id="lastName" name="lastName" placeholder="John" />
+            <FieldArray name="steps">
+              {({ insert, remove, push }) => (
+                <div>
+                  {values.steps.length > 0 &&
+                    values.steps.map((step, index) => (
+                      <FormStep key={index}>
+                        <div>
+                          <Field
+                            name={`steps.${index}.name`}
+                            placeholder="Jane Doe"
+                            type="text"
+                            onKeyUp={(event: React.KeyboardEvent) => {
+                              console.log(event.currentTarget);
+                              event.key === "Enter" && push({ name: "" });
+                            }}
+                          />
+                          <ErrorMessage
+                            name={`steps.${index}.name`}
+                            component="div"
+                            className="field-error"
+                          />
+                        </div>
+
+                        <div className="col">
+                          <button
+                            type="button"
+                            className="secondary"
+                            onClick={() => remove(index)}
+                          >
+                            X
+                          </button>
+                        </div>
+                      </FormStep>
+                    ))}
+                  <button
+                    type="button"
+                    className="secondary"
+                    onClick={() => push({ name: "", email: "" })}
+                  >
+                    Add step
+                  </button>
+                </div>
+              )}
+            </FieldArray>
           </FormBlock>
 
           <Button type="submit">Submit</Button>
@@ -141,6 +192,15 @@ const FormCreateEdit: FC<{}> = () => {
     </Formik>
   );
 };
+
+const FormStep = styled.div`
+  display: flex;
+  color: rgba(18, 70, 246, 1);
+  background-color: rgba(18, 70, 246, 0.1);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+`;
 
 const FormRadioButton = styled(Button)`
   padding: 0;
