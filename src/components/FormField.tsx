@@ -3,7 +3,7 @@ import { themeBlueField } from "../styled/themes";
 import { Field } from "formik";
 
 const FormField = styled(Field)`
-  padding: 0.25rem 1rem;
+  padding: 0.5rem;
   border: ${(props) => props.theme.border};
   font-weight: 500;
   font-size: 12px;
