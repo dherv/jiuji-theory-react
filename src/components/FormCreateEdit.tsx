@@ -13,6 +13,10 @@ interface Values {
 
 const FormCreateEdit: FC<{}> = () => {
   const teachers = [{ name: "Tom" }, { name: "John" }];
+  const positions = [{ name: "attack" }, { name: "defense" }];
+  const categories = [{ name: "Triangle" }, { name: "Half Guard" }];
+  const techniques = [{ name: "Triangle" }, { name: "Half Guard" }];
+  const steps = [{ name: "step1" }, { name: "step2" }, { name: "step3" }];
   return (
     <Formik
       initialValues={{
@@ -20,6 +24,9 @@ const FormCreateEdit: FC<{}> = () => {
         lastName: "",
         email: "",
         teacher: "",
+        position: "",
+        categorie: "",
+        technique: "",
       }}
       onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
         setTimeout(() => {
@@ -66,38 +73,66 @@ const FormCreateEdit: FC<{}> = () => {
           {values.teacher}
 
           <FormBlock>
-            <FormLabel htmlFor="position">position</FormLabel>
-            <Field component="select" id="position" name="position">
-              <option value="NY">New York</option>
-              <option value="SF">San Francisco</option>
-              <option value="CH">Chicago</option>
-              <option value="OTHER">Other</option>
-            </Field>
+            {positions.map((position) => (
+              <>
+                <FormRadioButton
+                  type="button"
+                  theme={
+                    values.position === position.name
+                      ? themeBlue
+                      : themeBlueLight
+                  }
+                >
+                  <label
+                    style={{ display: "block", padding: ".5rem 1rem" }}
+                    htmlFor={position.name}
+                  >
+                    {position.name}
+                  </label>
+                </FormRadioButton>
+
+                <Field
+                  type="radio"
+                  value={position.name}
+                  name="position"
+                  id={position.name}
+                  style={{ display: "none" }}
+                ></Field>
+              </>
+            ))}
           </FormBlock>
 
           <FormBlock>
-            <FormLabel htmlFor="lastName">categorie</FormLabel>
-            <FormField id="lastName" name="lastName" placeholder="John" />
+            <FormLabel htmlFor="category">category</FormLabel>
+            <FormSelect
+              component="select"
+              id="category"
+              name="category"
+              theme={themeBlueLight}
+            >
+              {categories.map((category) => (
+                <option value={category.name}>{category.name}</option>
+              ))}
+            </FormSelect>
           </FormBlock>
 
           <FormBlock>
-            <FormLabel htmlFor="lastName">technique</FormLabel>
-            <FormField id="lastName" name="lastName" placeholder="John" />
+            <FormLabel htmlFor="technique">technique</FormLabel>
+            <FormSelect
+              component="select"
+              id="technique"
+              name="technique"
+              theme={themeBlueLight}
+            >
+              {techniques.map((technique) => (
+                <option value={technique.name}>{technique.name}</option>
+              ))}
+            </FormSelect>
           </FormBlock>
 
           <FormBlock>
             <FormLabel htmlFor="lastName">steps</FormLabel>
             <FormField id="lastName" name="lastName" placeholder="John" />
-          </FormBlock>
-
-          <FormBlock>
-            <FormLabel htmlFor="email">Email</FormLabel>
-            <FormField
-              id="email"
-              name="email"
-              placeholder="john@acme.com"
-              type="email"
-            />
           </FormBlock>
 
           <Button type="submit">Submit</Button>
@@ -110,6 +145,17 @@ const FormCreateEdit: FC<{}> = () => {
 const FormRadioButton = styled(Button)`
   padding: 0;
 `;
+
+const FormSelect = styled(Field)`
+  padding: 0.25rem 1rem;
+  border: ${(props) => props.theme.border};
+
+  font-size: 0.75rem;
+  /* cancel destyle removal of caret */
+  -webkit-appearance: button;
+  appearance: button;
+`;
+
 const FormLabel = styled.label`
   display: block;
   margin-bottom: 0.25rem;
