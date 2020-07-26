@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 WebFont.load({
   google: {
-    families: ["Saira Stencil One:300,400,700", "sans-serif"],
+    families: ["Saira Stencil One:300,400,700", "Open Sans: 300,400,500,600"],
   },
 });
 
