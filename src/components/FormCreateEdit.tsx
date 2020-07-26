@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from "react";
+import React, { FC } from "react";
 import {
   Formik,
   Field,
@@ -11,40 +11,30 @@ import FormField from "./FormField";
 import styled from "styled-components";
 import Button from "./Button";
 import { themeBlueLight, themeBlue } from "../styled/themes";
+import FormRadios from "./FormRadios";
 
 interface Values {
   name: string;
   teacher: string;
+  type: string;
   position: string;
-  category: string;
   technique: string;
   steps: never[];
 }
 
-const FormCreateEdit: FC<{}> = () => {
-  const teachers = [
-    { id: 1, name: "Tom" },
-    { id: 2, name: "John" },
-  ];
-  const positions = [
-    { id: 1, name: "attack" },
-    { id: 2, name: "defense" },
-  ];
-  const categories = [
-    { id: 1, name: "Triangle" },
-    { id: 2, name: "Half Guard" },
-  ];
-  const techniques = [
-    { id: 1, name: "Triangle" },
-    { id: 2, name: "Half Guard" },
-  ];
+const FormCreateEdit: FC<{
+  teachers: any;
+  types: any;
+  positions: any;
+  techniques: any;
+}> = ({ teachers, types, positions, techniques }) => {
   return (
     <Formik
       initialValues={{
         name: "",
         teacher: "",
+        type: "",
         position: "",
-        category: "",
         technique: "",
         steps: [],
       }}
@@ -63,82 +53,26 @@ const FormCreateEdit: FC<{}> = () => {
               <FormField id="name" name="name" placeholder="name" />
             </FormBlock>
             <FormBlock>
-              <FormLabel htmlFor="teacher">teacher</FormLabel>
-
-              <FormRadioGroup>
-                {teachers.map((teacher) => (
-                  <Fragment key={teacher.id}>
-                    <FormRadioButton
-                      type="button"
-                      theme={
-                        values.teacher === teacher.name
-                          ? themeBlue
-                          : themeBlueLight
-                      }
-                    >
-                      <label
-                        style={{ display: "block", padding: ".5rem 1rem" }}
-                        htmlFor={teacher.name}
-                      >
-                        {teacher.name}
-                      </label>
-                    </FormRadioButton>
-
-                    <Field
-                      type="radio"
-                      value={teacher.name}
-                      name="teacher"
-                      id={teacher.name}
-                      style={{ display: "none" }}
-                    ></Field>
-                  </Fragment>
-                ))}
-              </FormRadioGroup>
+              <FormRadios
+                name="teacher"
+                data={teachers}
+                selected={values.teacher}
+              />
+            </FormBlock>
+            <FormBlock>
+              <FormRadios name="type" data={types} selected={values.type} />
             </FormBlock>
             <FormBlock>
               <FormLabel htmlFor="position">position</FormLabel>
-
-              <FormRadioGroup>
-                {positions.map((position) => (
-                  <Fragment key={position.id}>
-                    <FormRadioButton
-                      type="button"
-                      theme={
-                        values.position === position.name
-                          ? themeBlue
-                          : themeBlueLight
-                      }
-                    >
-                      <label
-                        style={{ display: "block", padding: ".5rem 1rem" }}
-                        htmlFor={position.name}
-                      >
-                        {position.name}
-                      </label>
-                    </FormRadioButton>
-
-                    <Field
-                      type="radio"
-                      value={position.name}
-                      name="position"
-                      id={position.name}
-                      style={{ display: "none" }}
-                    ></Field>
-                  </Fragment>
-                ))}
-              </FormRadioGroup>
-            </FormBlock>
-            <FormBlock>
-              <FormLabel htmlFor="category">category</FormLabel>
               <FormSelect
                 component="select"
-                id="category"
-                name="category"
+                id="position"
+                name="position"
                 theme={themeBlue}
               >
-                {categories.map((category) => (
-                  <option key={category.id} value={category.name}>
-                    {category.name}
+                {positions.map((position: any) => (
+                  <option key={position.id} value={position.name}>
+                    {position.name}
                   </option>
                 ))}
               </FormSelect>
@@ -152,7 +86,7 @@ const FormCreateEdit: FC<{}> = () => {
                 name="technique"
                 theme={themeBlue}
               >
-                {techniques.map((technique) => (
+                {techniques.map((technique: any) => (
                   <option key={technique.id} value={technique.name}>
                     {technique.name}
                   </option>
@@ -174,12 +108,6 @@ const FormCreateEdit: FC<{}> = () => {
                             type="text"
                             maxLength="100"
                           />
-                          <ErrorMessage
-                            name={`steps.${index}.name`}
-                            component="div"
-                            className="field-error"
-                          />
-
                           <div>
                             <Button
                               type="button"
@@ -206,10 +134,10 @@ const FormCreateEdit: FC<{}> = () => {
 
             <FormActions>
               <Button type="submit" theme={themeBlueLight}>
-                OK
+                ok
               </Button>
               <Button type="reset" theme={themeBlueLight}>
-                Cancel
+                cancel
               </Button>
             </FormActions>
           </Form>
@@ -250,11 +178,6 @@ const FormStep = styled.div`
   }
 `;
 
-const FormRadioButton = styled(Button)`
-  padding: 0;
-  margin-right: 1rem;
-`;
-
 const FormSelect = styled(Field)`
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(18, 70, 246, 0.1);
@@ -264,7 +187,7 @@ const FormSelect = styled(Field)`
   appearance: button;
 `;
 
-const FormLabel = styled.label`
+export const FormLabel = styled.label`
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
@@ -276,10 +199,6 @@ const FormBlock = styled.div`
   flex-direction: column;
   width: 100%;
   margin-bottom: 1.5rem;
-`;
-
-const FormRadioGroup = styled.div`
-  display: flex;
 `;
 
 const FormActions = styled.div`
