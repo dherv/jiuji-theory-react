@@ -16,3 +16,8 @@ export const themeBlueLight = {
 export const themeBlueField = {
   border: "1px solid rgba(18, 70, 246, 0.1)",
 };
+
+export const themeBlueHeader = {
+  color: "#fff",
+  backgroundColor: "rgba(18, 70, 246, 0.65)",
+};
