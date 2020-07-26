@@ -1,8 +1,8 @@
-import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import FormSteps from "../components/FormSteps";
-import "jest-styled-components";
-import { Formik, Form } from "formik";
+import 'jest-styled-components';
+import { Form, Formik } from 'formik';
+import React from 'react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import FormSteps from '../components/FormSteps';
 
 test("should render FormSteps", () => {
   render(

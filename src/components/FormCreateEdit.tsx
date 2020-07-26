@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import { Formik, Form, FormikHelpers } from "formik";
-import FormField from "./FormField";
-import styled from "styled-components";
-import Button from "./Button";
-import { themeBlueLight } from "../styled/themes";
-import FormRadios from "./FormRadios";
-import FormSelect from "./FormSelect";
-import FormSteps from "./FormSteps";
+import { Form, Formik, FormikHelpers } from 'formik';
+import React, { FC } from 'react';
+import styled from 'styled-components';
+import { themeBlueLight } from '../styled/themes';
+import Button from './Button';
+import FormField from './FormField';
+import FormRadios from './FormRadios';
+import FormSelect from './FormSelect';
+import FormSteps from './FormSteps';
 
 interface Values {
   name: string;

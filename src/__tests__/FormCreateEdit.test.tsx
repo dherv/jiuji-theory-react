@@ -1,8 +1,8 @@
-import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import FormCreateEdit from "../components/FormCreateEdit";
-import { FormCreateEditProps as props } from "../samples/FormCreateEdit.sample";
-import "jest-styled-components";
+import 'jest-styled-components';
+import React from 'react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import FormCreateEdit from '../components/FormCreateEdit';
+import { FormCreateEditProps as props } from '../samples/FormCreateEdit.sample';
 
 test("should render FormCreateEdit", () => {
   render(<FormCreateEdit {...props} />);

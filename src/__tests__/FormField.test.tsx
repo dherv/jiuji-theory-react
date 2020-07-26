@@ -1,7 +1,7 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import FormField from "../components/FormField";
-import { Formik, Form } from "formik";
+import { Form, Formik } from 'formik';
+import React from 'react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import FormField from '../components/FormField';
 
 const props = {
   onChange: jest.fn(),

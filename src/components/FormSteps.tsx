@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import { FormLabel } from "./FormCreateEdit";
-import { FieldArray, Field } from "formik";
-import Button from "./Button";
-import { themeBlue } from "../styled/themes";
-import styled from "styled-components";
+import { Field, FieldArray } from 'formik';
+import React, { FC } from 'react';
+import styled from 'styled-components';
+import { themeBlue } from '../styled/themes';
+import Button from './Button';
+import { FormLabel } from './FormCreateEdit';
 
 const FormSteps: FC<{
   values: { steps: { name: string }[] };

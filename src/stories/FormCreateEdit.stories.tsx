@@ -1,9 +1,8 @@
-import React from "react";
-import FormCreateEdit from "../components/FormCreateEdit";
+import React from 'react';
+import FormCreateEdit from '../components/FormCreateEdit';
 import {
-  FormEditProps as editPropsData,
-  FormCreateProps as createPropsData,
-} from "../samples/FormCreateEdit.sample";
+FormCreateProps as createPropsData, FormEditProps as editPropsData
+} from '../samples/FormCreateEdit.sample';
 
 export default {
   component: FormCreateEdit,

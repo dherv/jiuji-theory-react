@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { themeBlueField } from "../styled/themes";
-import { Field } from "formik";
+import { Field } from 'formik';
+import styled from 'styled-components';
+import { themeBlueField } from '../styled/themes';
 
 const FormField = styled(Field)`
   padding: 0.5rem;

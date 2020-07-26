@@ -1,9 +1,9 @@
-import React, { FC, Fragment } from "react";
-import { themeBlue, themeBlueLight } from "../styled/themes";
-import { Field } from "formik";
-import styled from "styled-components";
-import Button from "./Button";
-import { FormLabel } from "./FormCreateEdit";
+import { Field } from 'formik';
+import React, { FC, Fragment } from 'react';
+import styled from 'styled-components';
+import { themeBlue, themeBlueLight } from '../styled/themes';
+import Button from './Button';
+import { FormLabel } from './FormCreateEdit';
 
 const FormRadio: FC<{ name: string; data: any[]; selected: string }> = ({
   name,

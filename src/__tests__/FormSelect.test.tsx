@@ -1,9 +1,9 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import FormSelect from "../components/FormSelect";
-import { FormSelectProps as props } from "../samples/FormSelect.sample";
-import { Formik, Form } from "formik";
-import "jest-styled-components";
+import 'jest-styled-components';
+import { Form, Formik } from 'formik';
+import React from 'react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import FormSelect from '../components/FormSelect';
+import { FormSelectProps as props } from '../samples/FormSelect.sample';
 
 test("should render FormSelect", () => {
   render(

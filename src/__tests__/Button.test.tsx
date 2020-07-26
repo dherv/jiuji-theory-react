@@ -1,7 +1,7 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import Button from "../components/Button";
-import { themeBlueLight } from "../styled/themes";
+import React from 'react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import Button from '../components/Button';
+import { themeBlueLight } from '../styled/themes';
 
 const props = {
   onClick: jest.fn(),

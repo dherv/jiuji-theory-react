@@ -1,8 +1,8 @@
-import React from "react";
-import FormRadios from "../components/FormRadios";
-import { action } from "@storybook/addon-actions";
-import withFormik from "storybook-formik";
-import { FormRadiosProps as propsData } from "../samples/FormRadios.sample";
+import React from 'react';
+import withFormik from 'storybook-formik';
+import { action } from '@storybook/addon-actions';
+import FormRadios from '../components/FormRadios';
+import { FormRadiosProps as propsData } from '../samples/FormRadios.sample';
 
 export default {
   component: FormRadios,

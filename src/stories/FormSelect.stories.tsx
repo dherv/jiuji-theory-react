@@ -1,8 +1,8 @@
-import React from "react";
-import FormSelect from "../components/FormSelect";
-import { action } from "@storybook/addon-actions";
-import { FormSelectProps as propsData } from "../samples/FormSelect.sample";
-import withFormik from "storybook-formik";
+import React from 'react';
+import withFormik from 'storybook-formik';
+import { action } from '@storybook/addon-actions';
+import FormSelect from '../components/FormSelect';
+import { FormSelectProps as propsData } from '../samples/FormSelect.sample';
 
 export default {
   component: FormSelect,

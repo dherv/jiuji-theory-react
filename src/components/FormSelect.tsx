@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import { FormLabel } from "./FormCreateEdit";
-import { themeBlue } from "../styled/themes";
-import styled from "styled-components";
-import { Field } from "formik";
+import { Field } from 'formik';
+import React, { FC } from 'react';
+import styled from 'styled-components';
+import { themeBlue } from '../styled/themes';
+import { FormLabel } from './FormCreateEdit';
 
 const FormSelect: FC<{ name: string; data: any[] }> = ({ name, data }) => {
   return (

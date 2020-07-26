@@ -1,9 +1,9 @@
-import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import FormRadios from "../components/FormRadios";
-import { FormRadiosProps as props } from "../samples/FormRadios.sample";
-import { Formik, Form } from "formik";
-import "jest-styled-components";
+import 'jest-styled-components';
+import { Form, Formik } from 'formik';
+import React from 'react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import FormRadios from '../components/FormRadios';
+import { FormRadiosProps as props } from '../samples/FormRadios.sample';
 
 test("should call onChange when clicked", async () => {
   render(

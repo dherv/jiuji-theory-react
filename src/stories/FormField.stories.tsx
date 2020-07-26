@@ -1,7 +1,7 @@
-import React from "react";
-import FormField from "../components/FormField";
-import { action } from "@storybook/addon-actions";
-import withFormik from "storybook-formik";
+import React from 'react';
+import withFormik from 'storybook-formik';
+import { action } from '@storybook/addon-actions';
+import FormField from '../components/FormField';
 
 export default {
   component: FormField,

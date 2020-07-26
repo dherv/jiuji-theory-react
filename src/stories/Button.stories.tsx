@@ -1,7 +1,7 @@
-import React from "react";
-import Button from "../components/Button";
-import { themeBlueLight } from "../styled/themes";
-import { action } from "@storybook/addon-actions";
+import React from 'react';
+import { action } from '@storybook/addon-actions';
+import Button from '../components/Button';
+import { themeBlueLight } from '../styled/themes';
 
 export default {
   component: Button,

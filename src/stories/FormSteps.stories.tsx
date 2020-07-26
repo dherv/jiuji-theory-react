@@ -1,8 +1,8 @@
-import React from "react";
-import FormSteps from "../components/FormSteps";
-import { action } from "@storybook/addon-actions";
-import withFormik from "storybook-formik";
-import { Formik, Form } from "formik";
+import { Form, Formik } from 'formik';
+import React from 'react';
+import withFormik from 'storybook-formik';
+import { action } from '@storybook/addon-actions';
+import FormSteps from '../components/FormSteps';
 
 export default {
   component: FormSteps,
