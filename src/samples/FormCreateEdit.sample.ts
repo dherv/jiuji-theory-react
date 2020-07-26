@@ -20,4 +20,5 @@ export const FormCreateEditProps = {
   types,
   positions,
   techniques,
+  steps: [{ name: "step 1" }],
 };
