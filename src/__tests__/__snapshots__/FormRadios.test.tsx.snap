@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a checked radio button 1`] = `
+<DocumentFragment>
+  .c0 {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.c2 {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1246F6;
+  background-color: rgba(18,70,246,0.10);
+  border: 1px solid transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding: 0;
+  margin-right: 1rem;
+}
+
+.c3 {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(18,70,246,0.5);
+  background-color: #fff;
+  border: 1px solid rgba(18,70,246,0.5);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding: 0;
+  margin-right: 1rem;
+}
+
+.c3:hover {
+  background-color: rgba(18,70,246,0.10);
+  border: 1px solid transparent;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<form
+    action="#"
+  >
+    <div
+      aria-labelledby="name"
+      role="group"
+    >
+      <div
+        class="c0"
+        id="name"
+      >
+        name
+      </div>
+      <div
+        class="c1"
+      >
+        <button
+          class="sc-AxjAm c2"
+          type="button"
+        >
+          <label
+            for="checked"
+            style="display: block; padding: .5rem 1rem;"
+          >
+            checked
+          </label>
+        </button>
+        <input
+          id="checked"
+          name="name"
+          style="display: none;"
+          type="radio"
+          value="checked"
+        />
+        <button
+          class="sc-AxjAm c3"
+          type="button"
+        >
+          <label
+            for="unchecked"
+            style="display: block; padding: .5rem 1rem;"
+          >
+            unchecked
+          </label>
+        </button>
+        <input
+          id="unchecked"
+          name="name"
+          style="display: none;"
+          type="radio"
+          value="unchecked"
+        />
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`should render an unchecked radio button 1`] = `
+<DocumentFragment>
+  .c0 {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.c2 {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(18,70,246,0.5);
+  background-color: #fff;
+  border: 1px solid rgba(18,70,246,0.5);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding: 0;
+  margin-right: 1rem;
+}
+
+.c2:hover {
+  background-color: rgba(18,70,246,0.10);
+  border: 1px solid transparent;
+}
+
+.c3 {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1246F6;
+  background-color: rgba(18,70,246,0.10);
+  border: 1px solid transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding: 0;
+  margin-right: 1rem;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<form
+    action="#"
+  >
+    <div
+      aria-labelledby="name"
+      role="group"
+    >
+      <div
+        class="c0"
+        id="name"
+      >
+        name
+      </div>
+      <div
+        class="c1"
+      >
+        <button
+          class="sc-AxjAm c2"
+          type="button"
+        >
+          <label
+            for="checked"
+            style="display: block; padding: .5rem 1rem;"
+          >
+            checked
+          </label>
+        </button>
+        <input
+          id="checked"
+          name="name"
+          style="display: none;"
+          type="radio"
+          value="checked"
+        />
+        <button
+          class="sc-AxjAm c3"
+          type="button"
+        >
+          <label
+            for="unchecked"
+            style="display: block; padding: .5rem 1rem;"
+          >
+            unchecked
+          </label>
+        </button>
+        <input
+          id="unchecked"
+          name="name"
+          style="display: none;"
+          type="radio"
+          value="unchecked"
+        />
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;
