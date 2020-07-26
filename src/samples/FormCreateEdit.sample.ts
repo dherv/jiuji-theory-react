@@ -15,10 +15,24 @@ const techniques = [
   { id: 2, name: "kimura" },
 ];
 
-export const FormCreateEditProps = {
+const FormBase = {
   teachers,
   types,
   positions,
   techniques,
+};
+
+export const FormCreateProps = {
+  ...FormBase,
+  steps: [],
+};
+
+export const FormEditProps = {
+  ...FormBase,
+  steps: [{ name: "step 1" }],
+};
+
+export const FormCreateEditProps = {
+  ...FormBase,
   steps: [{ name: "step 1" }],
 };

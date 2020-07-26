@@ -14,7 +14,7 @@ interface Values {
   type: string;
   position: string;
   technique: string;
-  steps: never[];
+  steps: { name: string }[];
 }
 
 const FormCreateEdit: FC<{

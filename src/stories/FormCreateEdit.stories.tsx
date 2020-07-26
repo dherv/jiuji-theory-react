@@ -1,6 +1,9 @@
 import React from "react";
 import FormCreateEdit from "../components/FormCreateEdit";
-import { FormCreateEditProps as propsData } from "../samples/FormCreateEdit.sample";
+import {
+  FormEditProps as editPropsData,
+  FormCreateProps as createPropsData,
+} from "../samples/FormCreateEdit.sample";
 
 export default {
   component: FormCreateEdit,
@@ -10,4 +13,9 @@ export default {
 
 const actionsData = {};
 
-export const Default = () => <FormCreateEdit {...actionsData} {...propsData} />;
+export const Edit = () => (
+  <FormCreateEdit {...actionsData} {...editPropsData} />
+);
+export const Create = () => (
+  <FormCreateEdit {...actionsData} {...createPropsData} />
+);
