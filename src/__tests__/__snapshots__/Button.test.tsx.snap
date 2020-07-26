@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the theme light 1`] = `
+<DocumentFragment>
+  <button
+    class="sc-AxjAm jcymSN"
+  >
+    test
+  </button>
+</DocumentFragment>
+`;
+
+exports[`should render the theme light hover on mouseOver 1`] = `
+<DocumentFragment>
+  <button
+    class="sc-AxjAm jcymSN"
+  >
+    test
+  </button>
+</DocumentFragment>
+`;
+
+exports[`should render with the default them 1`] = `
+<DocumentFragment>
+  <button
+    class="sc-AxjAm dmAhUC"
+  >
+    test
+  </button>
+</DocumentFragment>
+`;
