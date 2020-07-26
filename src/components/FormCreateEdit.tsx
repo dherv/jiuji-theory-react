@@ -1,17 +1,11 @@
 import React, { FC } from "react";
-import {
-  Formik,
-  Field,
-  Form,
-  FormikHelpers,
-  FieldArray,
-  ErrorMessage,
-} from "formik";
+import { Formik, Field, Form, FormikHelpers, FieldArray } from "formik";
 import FormField from "./FormField";
 import styled from "styled-components";
 import Button from "./Button";
 import { themeBlueLight, themeBlue } from "../styled/themes";
 import FormRadios from "./FormRadios";
+import FormSelect from "./FormSelect";
 
 interface Values {
   name: string;
@@ -52,6 +46,7 @@ const FormCreateEdit: FC<{
               <FormLabel htmlFor="name">name</FormLabel>
               <FormField id="name" name="name" placeholder="name" />
             </FormBlock>
+
             <FormBlock>
               <FormRadios
                 name="teacher"
@@ -59,43 +54,21 @@ const FormCreateEdit: FC<{
                 selected={values.teacher}
               />
             </FormBlock>
+
             <FormBlock>
               <FormRadios name="type" data={types} selected={values.type} />
             </FormBlock>
+
             <FormBlock>
-              <FormLabel htmlFor="position">position</FormLabel>
-              <FormSelect
-                component="select"
-                id="position"
-                name="position"
-                theme={themeBlue}
-              >
-                {positions.map((position: any) => (
-                  <option key={position.id} value={position.name}>
-                    {position.name}
-                  </option>
-                ))}
-              </FormSelect>
+              <FormSelect name="position" data={positions}></FormSelect>
             </FormBlock>
 
             <FormBlock>
-              <FormLabel htmlFor="technique">technique</FormLabel>
-              <FormSelect
-                component="select"
-                id="technique"
-                name="technique"
-                theme={themeBlue}
-              >
-                {techniques.map((technique: any) => (
-                  <option key={technique.id} value={technique.name}>
-                    {technique.name}
-                  </option>
-                ))}
-              </FormSelect>
+              <FormSelect name="technique" data={techniques}></FormSelect>
             </FormBlock>
 
             <FormBlock>
-              <FormLabel htmlFor="lastName">steps</FormLabel>
+              <FormLabel as="div">steps</FormLabel>
               <FieldArray name="steps">
                 {({ insert, remove, push }) => (
                   <div>
@@ -176,15 +149,6 @@ const FormStep = styled.div`
   ${Button} {
     background-color: rgba(18, 70, 246, 0.05);
   }
-`;
-
-const FormSelect = styled(Field)`
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(18, 70, 246, 0.1);
-  font-size: 0.75rem;
-  /* cancel destyle removal of caret */
-  -webkit-appearance: button;
-  appearance: button;
 `;
 
 export const FormLabel = styled.label`
