@@ -12,7 +12,7 @@ const TechniqueSteps: FC<{ steps: string[] }> = ({ steps }) => {
 };
 
 const TechniqueStep = styled.li`
-  margin: 1rem 0;
+  margin-bottom: 1rem;
   font-size: 0.75rem;
   font-weight: 600;
 `;

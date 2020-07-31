@@ -18,6 +18,7 @@ const TechniqueButtons: FC<{}> = () => {
 };
 
 const StyledContainer = styled.div`
+  margin-top: 2rem;
   ${Button} {
     margin-right: 1rem;
   }
