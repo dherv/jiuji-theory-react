@@ -37,15 +37,16 @@ const Technique: FC<{
 };
 
 const Container = styled.div`
-  padding: 0.5rem;
+  padding: 1rem;
   background-color: ${(props) => props.theme.backgroundColor};
   font-weight: 600;
   font-size: 0.75rem;
   cursor: pointer;
+  border-bottom: 1px solid rgba(18, 70, 246, 0.1);
 `;
 
 const Content = styled.div`
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
 `;
 
 const StyledList = styled.ul`
