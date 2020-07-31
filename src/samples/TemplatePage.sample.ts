@@ -1,7 +1,7 @@
 import React from 'react';
 import FormCreateEdit from '../components/FormCreateEdit';
-import { FormCreateEditProps as props } from '../samples/FormCreateEdit.sample';
+import { FormCreateEditProps as props } from './FormCreateEdit.sample';
 
-export const PageTemplateProps = {
+export const TemplatePageProps = {
   children: React.createElement(FormCreateEdit, props),
 };

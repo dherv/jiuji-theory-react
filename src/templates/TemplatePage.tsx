@@ -2,7 +2,7 @@ import React, { Children, FC } from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header';
 
-const PageTemplate: FC<{}> = ({ children }) => {
+const TemplatePage: FC<{}> = ({ children }) => {
   return (
     <>
       <Header></Header>
@@ -14,4 +14,4 @@ const PageTemplate: FC<{}> = ({ children }) => {
 
 const StyledMain = styled.main``;
 
-export default PageTemplate;
+export default TemplatePage;

@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import Technique from '../components/Technique';
-import PageTemplate from '../templates/PageTemplate';
+import TemplatePage from '../templates/TemplatePage';
 
 const PageHome: FC<{ techniques: any }> = ({ techniques }) => {
   return (
-    <PageTemplate>
+    <TemplatePage>
       <StyledList>
         {techniques.map((technique: any) => (
           <li key={technique.id}>
@@ -13,7 +13,7 @@ const PageHome: FC<{ techniques: any }> = ({ techniques }) => {
           </li>
         ))}
       </StyledList>
-    </PageTemplate>
+    </TemplatePage>
   );
 };
 

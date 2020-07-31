@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import FormCreateEdit from '../components/FormCreateEdit';
 import { FormCreateEditProps as props } from '../samples/FormCreateEdit.sample';
-import PageTemplate from '../templates/PageTemplate';
+import TemplatePage from '../templates/TemplatePage';
 
 const PageCreateEdit: FC<{}> = () => {
   return (
-    <PageTemplate>
+    <TemplatePage>
       <FormCreateEdit {...props} />
-    </PageTemplate>
+    </TemplatePage>
   );
 };
 
