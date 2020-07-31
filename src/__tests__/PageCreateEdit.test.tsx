@@ -7,3 +7,8 @@ import { PageCreateEditProps as props } from '../samples/PageCreateEdit.sample';
 test("should render PageCreateEdit", () => {
   render(<PageCreateEdit {...props} />);
 });
+
+test("should render the layout header", () => {
+  render(<PageCreateEdit {...props} />);
+  expect(screen.getByRole("banner")).toBeInTheDocument();
+});
