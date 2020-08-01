@@ -19,6 +19,7 @@ const StyledNav = styled.nav`
   right: 0;
   width: 150px;
   font-weight: 300;
+  background-color: #fff;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   & li {
     padding: 0.5rem;
