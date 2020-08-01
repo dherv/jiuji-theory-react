@@ -1,7 +1,9 @@
 import { Form, Formik, FormikHelpers } from 'formik';
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import TemplateForm from '../templates/TemplateForm';
 import FormActions from './FormActions';
+import FormBlock from './FormBlock';
 import FormField from './FormField';
 import FormLabel from './FormLabel';
 import FormRadios from './FormRadios';
@@ -42,58 +44,43 @@ const CreateEditForm: FC<{
       }}
     >
       {({ values }) => (
-        <FormContainer>
-          <Form>
-            <FormBlock>
-              <FormLabel htmlFor="name">name</FormLabel>
-              <FormField id="name" name="name" placeholder="name" />
-            </FormBlock>
+        <TemplateForm>
+          <FormBlock>
+            <FormLabel htmlFor="name">name</FormLabel>
+            <FormField id="name" name="name" placeholder="name" />
+          </FormBlock>
 
-            <FormBlock>
-              <FormRadios
-                name="teacher"
-                data={teachers}
-                selected={values.teacher}
-              />
-            </FormBlock>
+          <FormBlock>
+            <FormRadios
+              name="teacher"
+              data={teachers}
+              selected={values.teacher}
+            />
+          </FormBlock>
 
-            <FormBlock>
-              <FormRadios name="type" data={types} selected={values.type} />
-            </FormBlock>
+          <FormBlock>
+            <FormRadios name="type" data={types} selected={values.type} />
+          </FormBlock>
 
-            <FormBlock>
-              <FormLabel htmlFor="position">position</FormLabel>
-              <FormSelect name="position" data={positions}></FormSelect>
-            </FormBlock>
+          <FormBlock>
+            <FormLabel htmlFor="position">position</FormLabel>
+            <FormSelect name="position" data={positions}></FormSelect>
+          </FormBlock>
 
-            <FormBlock>
-              <FormLabel htmlFor="technique">technique</FormLabel>
-              <FormSelect name="technique" data={techniques}></FormSelect>
-            </FormBlock>
+          <FormBlock>
+            <FormLabel htmlFor="technique">technique</FormLabel>
+            <FormSelect name="technique" data={techniques}></FormSelect>
+          </FormBlock>
 
-            <FormBlock>
-              <FormSteps values={values} />
-            </FormBlock>
+          <FormBlock>
+            <FormSteps values={values} />
+          </FormBlock>
 
-            <FormActions></FormActions>
-          </Form>
-        </FormContainer>
+          <FormActions></FormActions>
+        </TemplateForm>
       )}
     </Formik>
   );
 };
-
-const FormContainer = styled.div`
-  width: 100%;
-  max-width: 440px;
-  padding: 1rem;
-`;
-
-const FormBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 1.5rem;
-`;
 
 export default CreateEditForm;
