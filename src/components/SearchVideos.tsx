@@ -10,7 +10,7 @@ const SearchVideos: FC<{}> = () => {
     console.log("clicked");
   };
   return (
-    <>
+    <StyledSearchVideos>
       <Formik
         initialValues={{
           query: "",
@@ -24,10 +24,13 @@ const SearchVideos: FC<{}> = () => {
         onClick={handleClick}
         selected={false}
       ></SearchVideoList>
-    </>
+    </StyledSearchVideos>
   );
 };
 
+const StyledSearchVideos = styled.div`
+  padding: 1rem;
+`;
 const StyledSearch = styled(Search)`
   margin-bottom: 1rem;
 `;
