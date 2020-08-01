@@ -21,3 +21,9 @@ export const themeBlueHeader = {
   color: "#fff",
   backgroundColor: "rgba(18, 70, 246, 0.65)",
 };
+
+export const themeWhite = {
+  color: "#fff",
+  border: "1px solid #fff",
+  fontWeight: 300,
+};
