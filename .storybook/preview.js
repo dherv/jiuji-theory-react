@@ -3,6 +3,14 @@ import { addDecorator } from "@storybook/react";
 import GlobalStyle from "../src/styled/global";
 import "destyle.css";
 import WebFont from "webfontloader";
+import { addParameters } from "@storybook/client-api";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+
+addParameters({
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
+  },
+});
 
 WebFont.load({
   google: {
