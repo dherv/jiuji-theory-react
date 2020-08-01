@@ -2,7 +2,7 @@ import { Formik } from 'formik';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { SearchVideoListProps } from '../samples/SearchVideoList.sample';
-import Search from './Search';
+import Search from './FormSearch';
 import SearchVideoList from './SearchVideoList';
 
 const SearchVideos: FC<{}> = () => {

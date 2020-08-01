@@ -1,12 +1,12 @@
 import React from 'react';
 import withFormik from 'storybook-formik';
 import { action } from '@storybook/addon-actions';
-import Search from '../components/Search';
-import { SearchProps as propsData } from '../samples/Search.sample';
+import FormSearch from '../components/FormSearch';
+import { FormSearchProps as propsData } from '../samples/FormSearch.sample';
 
 export default {
-  component: Search,
-  title: "Search",
+  component: FormSearch,
+  title: "FormSearch",
   excludeStories: /.*Data$/,
   decorators: [withFormik],
   parameters: {
@@ -20,4 +20,4 @@ export default {
 
 const actionsData = {};
 
-export const Default = () => <Search {...propsData} {...actionsData} />;
+export const Default = () => <FormSearch {...propsData} {...actionsData} />;

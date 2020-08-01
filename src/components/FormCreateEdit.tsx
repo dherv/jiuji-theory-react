@@ -62,10 +62,12 @@ const FormCreateEdit: FC<{
             </FormBlock>
 
             <FormBlock>
+              <FormLabel htmlFor="position">position</FormLabel>
               <FormSelect name="position" data={positions}></FormSelect>
             </FormBlock>
 
             <FormBlock>
+              <FormLabel htmlFor="technique">technique</FormLabel>
               <FormSelect name="technique" data={techniques}></FormSelect>
             </FormBlock>
 

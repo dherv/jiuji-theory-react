@@ -1,10 +1,10 @@
 import { Form, Formik } from 'formik';
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
-import { SelectProps } from '../samples/Select.sample';
+import { FormSelectProps } from '../samples/FormSelect.sample';
 import { VideoProps } from '../samples/Video.sample';
 import FormActions from './FormActions';
-import Select from './Select';
+import Select from './FormSelect';
 import Video from './Video';
 import VideoContentAdd from './VideoContentAdd';
 
@@ -32,7 +32,7 @@ const VideoAdd: FC<{
           onSubmit={() => {}}
         >
           <StyledForm>
-            <Select {...SelectProps}></Select>
+            <Select {...FormSelectProps}></Select>
             <StyledFormActions></StyledFormActions>
           </StyledForm>
         </Formik>

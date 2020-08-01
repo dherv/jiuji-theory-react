@@ -12,7 +12,7 @@ export default {
   parameters: {
     formik: {
       initialValues: {
-        name: "open guard",
+        query: "",
       },
     },
   },
