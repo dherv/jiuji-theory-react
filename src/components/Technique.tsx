@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { TechniqueStepsProps } from '../samples/TechniqueSteps.sample';
-import { VideoListProps } from '../samples/VideoList.sample';
+import { TechniqueVideoListProps } from '../samples/TechniqueVideoList.sample';
 import { themeBlue } from '../styled/themes';
 import TechniqueButtons from './TechniqueButtons';
 import TechniqueSteps from './TechniqueSteps';
-import VideoList from './VideoList';
+import TechniqueVideoList from './TechniqueVideoList';
 
 const Technique: FC<{
   name: string;
@@ -28,7 +28,7 @@ const Technique: FC<{
       {selected && (
         <Content>
           <TechniqueSteps {...TechniqueStepsProps}></TechniqueSteps>
-          <VideoList {...VideoListProps}></VideoList>
+          <TechniqueVideoList {...TechniqueVideoListProps}></TechniqueVideoList>
           <TechniqueButtons />
         </Content>
       )}

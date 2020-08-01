@@ -47,6 +47,11 @@ test("should render multiple videos", async () => {
   expect(screen.queryAllByTitle("video title")).toHaveLength(3);
 });
 
+test("should render multiple videos with content", async () => {
+  render(<Technique {...props} />);
+  expect(screen.queryAllByText("video title")).toHaveLength(3);
+});
+
 test("should render TechniqueButtons", () => {
   render(<Technique {...props} />);
   expect(screen.getByTitle("technique-archive")).toBeInTheDocument();

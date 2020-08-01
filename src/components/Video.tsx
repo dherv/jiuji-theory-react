@@ -7,22 +7,27 @@ const Video: FC<{ id: string; title: string; description: string }> = ({
   id,
   title,
   description,
+  children,
 }) => {
   return (
-    <Container>
+    <StyledVideo>
       <VideoFrame id={id} title={title}></VideoFrame>
-      <ContentWrapper>
-        <VideoContent description={description} title={title}></VideoContent>
-      </ContentWrapper>
-    </Container>
+      <StyledContent>
+        {children ? (
+          children
+        ) : (
+          <VideoContent description={description} title={title}></VideoContent>
+        )}
+      </StyledContent>
+    </StyledVideo>
   );
 };
 
-const Container = styled.div`
+const StyledVideo = styled.div`
   display: flex;
 `;
 
-const ContentWrapper = styled.div`
+const StyledContent = styled.div`
   margin-left: 1rem;
 `;
 

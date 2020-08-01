@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { themeBlue } from '../styled/themes';
 import Button from './Button';
-import { FormLabel } from './FormCreateEdit';
+import FormLabel from './FormLabel';
 
 const FormSteps: FC<{
   values: { steps: { name: string }[] };

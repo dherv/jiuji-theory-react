@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import Video from './Video';
 
-const VideoList: FC<{ videos: any[] }> = ({ videos }) => {
+const TechniqueVideoList: FC<{ videos: any[] }> = ({ videos }) => {
   return (
     <StyledList>
       {videos.map((video) => (
@@ -20,4 +20,4 @@ const StyledList = styled.ul`
   }
 `;
 
-export default VideoList;
+export default TechniqueVideoList;

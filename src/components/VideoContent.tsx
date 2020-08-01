@@ -6,10 +6,10 @@ const VideoContent: FC<{ title: string; description: string }> = ({
   description,
 }) => {
   return (
-    <div>
+    <>
       <Title>{title}</Title>
       <Paragraph>{description}</Paragraph>
-    </div>
+    </>
   );
 };
 
