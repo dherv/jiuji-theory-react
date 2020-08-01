@@ -17,7 +17,7 @@ interface Values {
   steps: { name: string }[];
 }
 
-const FormCreateEdit: FC<{
+const CreateEditForm: FC<{
   teachers: any;
   types: any;
   positions: any;
@@ -96,4 +96,4 @@ const FormBlock = styled.div`
   margin-bottom: 1.5rem;
 `;
 
-export default FormCreateEdit;
+export default CreateEditForm;

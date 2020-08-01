@@ -22,17 +22,17 @@ const FormBase = {
   techniques,
 };
 
-export const FormCreateProps = {
+export const CreateFormProps = {
   ...FormBase,
   steps: [],
 };
 
-export const FormEditProps = {
+export const EditFormProps = {
   ...FormBase,
   steps: [{ name: "step 1" }],
 };
 
-export const FormCreateEditProps = {
+export const CreateEditFormProps = {
   ...FormBase,
   steps: [{ name: "step 1" }],
 };

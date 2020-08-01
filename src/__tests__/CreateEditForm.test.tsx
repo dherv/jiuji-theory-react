@@ -1,19 +1,19 @@
 import 'jest-styled-components';
 import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import FormCreateEdit from '../components/FormCreateEdit';
-import { FormCreateEditProps as props } from '../samples/FormCreateEdit.sample';
+import CreateEditForm from '../components/CreateEditForm';
+import { CreateEditFormProps as props } from '../samples/CreateEditForm.sample';
 
-test("should render FormCreateEdit", () => {
-  render(<FormCreateEdit {...props} />);
+test("should render CreateEditForm", () => {
+  render(<CreateEditForm {...props} />);
 });
 
 test("should render a text input for name", () => {
-  render(<FormCreateEdit {...props} />);
+  render(<CreateEditForm {...props} />);
   expect(screen.getByLabelText("name")).toBeInTheDocument();
 });
 test("should render a radio input for teacher", () => {
-  render(<FormCreateEdit {...props} />);
+  render(<CreateEditForm {...props} />);
   expect(screen.getByLabelText("teacher"));
 
   // radio inputs are displayed correctly
@@ -22,14 +22,14 @@ test("should render a radio input for teacher", () => {
 });
 
 test("should render a radio input for position", () => {
-  render(<FormCreateEdit {...props} />);
+  render(<CreateEditForm {...props} />);
   expect(screen.getByLabelText("type"));
   // radio inputs are displayed correctly
   expect(screen.getByLabelText("offensive")).toBeInTheDocument();
   expect(screen.getByLabelText("defensive")).toBeInTheDocument();
 });
 test("should render a select input for position", () => {
-  render(<FormCreateEdit {...props} />);
+  render(<CreateEditForm {...props} />);
   expect(screen.getByLabelText("position")).toBeInTheDocument();
   // check options are displayed
   expect(screen.getByText("open guard")).toBeInTheDocument();
@@ -37,7 +37,7 @@ test("should render a select input for position", () => {
 });
 
 test("should render a select input for technique", () => {
-  render(<FormCreateEdit {...props} />);
+  render(<CreateEditForm {...props} />);
   expect(screen.getByLabelText("technique")).toBeInTheDocument();
   // check options are displayed
   expect(screen.getByText("triangle")).toBeInTheDocument();
@@ -45,7 +45,7 @@ test("should render a select input for technique", () => {
 });
 
 test("should display a step on click +, enter the input correctly and delete it on click x", async () => {
-  render(<FormCreateEdit {...props} />);
+  render(<CreateEditForm {...props} />);
 
   // the component should already have received one element from the props
 
@@ -69,7 +69,7 @@ test("should display a step on click +, enter the input correctly and delete it 
 });
 
 test("should clear the form on click cancel", async () => {
-  render(<FormCreateEdit {...props} />);
+  render(<CreateEditForm {...props} />);
   fireEvent.click(screen.getByText("+"));
   fireEvent.input(screen.getAllByPlaceholderText("enter a step")[1], {
     target: { value: "step 2" },
