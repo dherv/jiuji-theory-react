@@ -7,14 +7,21 @@ import { themeWhite } from '../styled/themes';
 
 const Auth: FC<{}> = ({}) => {
   const [register, setRegister] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setRegister((prevRegister) => !prevRegister);
+  };
+
   const AuthForm = register ? <AuthRegister /> : <AuthLogin />;
-  const Title = register ? "register" : "login";
+  const title = register ? "register" : "login";
+  const switchButtonText = register ? "login" : "register";
+
   return (
     <StyledAuth>
-      <StyledHeading as="h2">{Title}</StyledHeading>
+      <StyledHeading as="h2">{title}</StyledHeading>
       <StyledContent>{AuthForm}</StyledContent>
       <ThemeProvider theme={themeWhite}>
-        <StyledButton>register</StyledButton>
+        <Button onClick={handleClick}>{switchButtonText}</Button>
       </ThemeProvider>
     </StyledAuth>
   );
@@ -34,9 +41,6 @@ const StyledContent = styled.div`
   background-color: #fff;
   margin: 1rem 0;
   padding: 1rem;
-`;
-const StyledButton = styled(Button)`
-  margin: 0 auto;
 `;
 
 export default Auth;
