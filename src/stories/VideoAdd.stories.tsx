@@ -13,4 +13,9 @@ const actionsData = {
   onClick: action("onClick"),
 };
 
-export const Default = () => <VideoAdd {...propsData} {...actionsData} />;
+export const Default = () => (
+  <VideoAdd {...propsData} {...actionsData} selected={false} />
+);
+export const AddClicked = () => (
+  <VideoAdd {...propsData} {...actionsData} selected={true} />
+);
