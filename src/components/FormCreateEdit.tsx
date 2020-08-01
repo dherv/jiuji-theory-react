@@ -1,9 +1,9 @@
 import { Form, Formik, FormikHelpers } from 'formik';
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { themeBlueLight } from '../styled/themes';
-import Button from './Button';
+import FormActions from './FormActions';
 import FormField from './FormField';
+import FormLabel from './FormLabel';
 import FormRadios from './FormRadios';
 import FormSelect from './FormSelect';
 import FormSteps from './FormSteps';
@@ -73,14 +73,7 @@ const FormCreateEdit: FC<{
               <FormSteps values={values} />
             </FormBlock>
 
-            <FormActions>
-              <Button type="submit" theme={themeBlueLight}>
-                ok
-              </Button>
-              <Button type="reset" theme={themeBlueLight}>
-                cancel
-              </Button>
-            </FormActions>
+            <FormActions></FormActions>
           </Form>
         </FormContainer>
       )}
@@ -94,13 +87,6 @@ const FormContainer = styled.div`
   padding: 1rem;
 `;
 
-export const FormLabel = styled.label`
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  font-size: 0.75rem;
-`;
-
 const FormBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -108,11 +94,4 @@ const FormBlock = styled.div`
   margin-bottom: 1.5rem;
 `;
 
-const FormActions = styled.div`
-  display: flex;
-  justify-content: center;
-  ${Button} {
-    margin: 0 1rem;
-  }
-`;
 export default FormCreateEdit;

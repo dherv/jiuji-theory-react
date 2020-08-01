@@ -3,7 +3,7 @@ import React, { FC, Fragment } from 'react';
 import styled from 'styled-components';
 import { themeBlue, themeBlueLight } from '../styled/themes';
 import Button from './Button';
-import { FormLabel } from './FormCreateEdit';
+import FormLabel from './FormLabel';
 
 const FormRadio: FC<{ name: string; data: any[]; selected: string }> = ({
   name,
