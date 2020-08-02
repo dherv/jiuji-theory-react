@@ -1,5 +1,6 @@
 import { TechniqueVideoListProps } from './TechniqueVideoList.sample';
 
 export const SearchVideoListProps = {
-  ...TechniqueVideoListProps,
+  videos: TechniqueVideoListProps.videos,
+  selected: true,
 };
