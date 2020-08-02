@@ -1,16 +1,13 @@
-
-import React from "react";
-import Auth from "../components/Auth";
-import { action } from "@storybook/addon-actions";
-import { AuthProps as propsData } from "../samples/Auth.sample";
+import React, { FC } from 'react';
+import Auth from '../components/Auth';
+import { AuthProps as propsData } from '../samples/Auth.sample';
 
 export default {
   component: Auth,
-  title: "Auth",
+  title: 'Auth',
   excludeStories: /.*Data$/,
 };
 
 const actionsData = {};
 
-export const Default = () => <Auth  {...propsData}  {...actionsData}/>;
-    
+export const Default: FC = () => <Auth {...propsData} {...actionsData} />;

@@ -1,16 +1,12 @@
 import 'jest-styled-components';
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import PageAccount from '../pages/PageAccount';
 import { PageAccountProps as props } from '../samples/PageAccount.sample';
 
-jest.mock("../components/ErrorBoundary");
+jest.mock('../components/ErrorBoundary');
 
-test("should render PageAccount", () => {
+test('should render the layout header', () => {
   render(<PageAccount {...props} />);
-});
-
-test("should render the layout header", () => {
-  render(<PageAccount {...props} />);
-  expect(screen.getByRole("banner")).toBeInTheDocument();
+  expect(screen.getByRole('banner')).toBeInTheDocument();
 });

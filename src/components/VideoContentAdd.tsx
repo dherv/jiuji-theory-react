@@ -10,8 +10,8 @@ const VideoContentAdd: FC<{
 }> = ({ title, description, onClick }) => {
   return (
     <>
-      <VideoContent title={title} description={description}></VideoContent>
-      <StyledIcon title="video-add-icon" onClick={onClick}></StyledIcon>
+      <VideoContent title={title} description={description} />
+      <StyledIcon title="video-add-icon" onClick={onClick} />
     </>
   );
 };

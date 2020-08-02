@@ -1,4 +1,6 @@
-const ErrorBoundary = ({ children }: any) => {
+const ErrorBoundary: unknown = ({
+  children,
+}: React.PropsWithChildren<React.ReactNode>) => {
   return children;
 };
 

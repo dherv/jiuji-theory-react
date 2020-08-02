@@ -1,4 +1,4 @@
 export const VideoContentProps = {
-  title: "video title",
-  description: "video description",
+  title: 'video title',
+  description: 'video description',
 };

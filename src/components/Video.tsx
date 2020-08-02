@@ -11,13 +11,9 @@ const Video: FC<{ id: string; title: string; description: string }> = ({
 }) => {
   return (
     <StyledVideo>
-      <VideoFrame id={id} title={title}></VideoFrame>
+      <VideoFrame id={id} title={title} />
       <StyledContent>
-        {children ? (
-          children
-        ) : (
-          <VideoContent description={description} title={title}></VideoContent>
-        )}
+        {children || <VideoContent description={description} title={title} />}
       </StyledContent>
     </StyledVideo>
   );

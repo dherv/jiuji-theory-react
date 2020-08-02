@@ -1,16 +1,15 @@
-
-import React from "react";
-import AccountForm from "../components/AccountForm";
-import { action } from "@storybook/addon-actions";
-import { AccountFormProps as propsData } from "../samples/AccountForm.sample";
+import React, { FC } from 'react';
+import AccountForm from '../components/AccountForm';
+import { AccountFormProps as propsData } from '../samples/AccountForm.sample';
 
 export default {
   component: AccountForm,
-  title: "AccountForm",
+  title: 'AccountForm',
   excludeStories: /.*Data$/,
 };
 
 const actionsData = {};
 
-export const Default = () => <AccountForm  {...propsData}  {...actionsData}/>;
-    
+export const Default: FC = () => (
+  <AccountForm {...propsData} {...actionsData} />
+);

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-const HeaderNav: FC<{}> = () => {
+const HeaderNav: FC = () => {
   return (
     <StyledNav>
       <ul>

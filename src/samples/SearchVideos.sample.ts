@@ -1,4 +1,1 @@
-
-export const SearchVideosProps = {
-
-}
+export const SearchVideosProps = {};

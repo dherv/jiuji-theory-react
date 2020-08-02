@@ -4,7 +4,7 @@ import Auth from '../components/Auth';
 import ErrorBoundary from '../components/ErrorBoundary';
 import TemplatePage from '../templates/TemplatePage';
 
-const PageAuth: FC<{}> = () => {
+const PageAuth: FC = () => {
   return (
     <ErrorBoundary>
       <TemplatePage>

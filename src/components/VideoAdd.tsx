@@ -1,5 +1,5 @@
 import { Form, Formik } from 'formik';
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { FormSelectProps } from '../samples/FormSelect.sample';
 import { VideoProps } from '../samples/Video.sample';
@@ -14,7 +14,7 @@ const VideoAdd: FC<{
   description: string;
   selected: boolean;
   onClick: (event: React.MouseEvent<SVGAElement>) => void;
-}> = ({ id, title, description, onClick, selected }) => {
+}> = ({ title, description, onClick, selected }) => {
   return (
     <div>
       <Video {...VideoProps}>
@@ -22,18 +22,18 @@ const VideoAdd: FC<{
           description={description}
           title={title}
           onClick={onClick}
-        ></VideoContentAdd>
+        />
       </Video>
       {selected ? (
         <Formik
           initialValues={{
-            technique: "",
+            technique: '',
           }}
           onSubmit={() => {}}
         >
           <StyledForm>
-            <Select {...FormSelectProps}></Select>
-            <StyledFormActions></StyledFormActions>
+            <Select {...FormSelectProps} />
+            <StyledFormActions />
           </StyledForm>
         </Formik>
       ) : null}

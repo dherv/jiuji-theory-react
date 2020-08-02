@@ -1,6 +1,5 @@
-import { Form, Formik, FormikHelpers } from 'formik';
+import { Formik, FormikHelpers } from 'formik';
 import React, { FC } from 'react';
-import styled from 'styled-components';
 import TemplateForm from '../templates/TemplateForm';
 import FormActions from './FormActions';
 import FormBlock from './FormBlock';
@@ -29,16 +28,15 @@ const CreateEditForm: FC<{
   return (
     <Formik
       initialValues={{
-        name: "",
-        teacher: "",
-        type: "",
-        position: "",
-        technique: "",
+        name: '',
+        teacher: '',
+        type: '',
+        position: '',
+        technique: '',
         steps,
       }}
       onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
         }, 200);
       }}
@@ -64,19 +62,19 @@ const CreateEditForm: FC<{
 
           <FormBlock>
             <FormLabel htmlFor="position">position</FormLabel>
-            <FormSelect name="position" data={positions}></FormSelect>
+            <FormSelect name="position" data={positions} />
           </FormBlock>
 
           <FormBlock>
             <FormLabel htmlFor="technique">technique</FormLabel>
-            <FormSelect name="technique" data={techniques}></FormSelect>
+            <FormSelect name="technique" data={techniques} />
           </FormBlock>
 
           <FormBlock>
             <FormSteps values={values} />
           </FormBlock>
 
-          <FormActions></FormActions>
+          <FormActions />
         </TemplateForm>
       )}
     </Formik>

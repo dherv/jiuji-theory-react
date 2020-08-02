@@ -11,21 +11,20 @@ interface Values {
   password: string;
 }
 
-const AuthLogin: FC<{}> = () => {
+const AuthLogin: FC = () => {
   return (
     <Formik
       initialValues={{
-        email: "",
-        password: "",
+        email: '',
+        password: '',
       }}
       onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
         }, 200);
       }}
     >
-      {({ values }) => (
+      {() => (
         <Form>
           <FormBlock>
             <FormLabel htmlFor="email">email</FormLabel>

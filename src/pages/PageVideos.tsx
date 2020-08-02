@@ -4,7 +4,7 @@ import SearchVideos from '../components/SearchVideos';
 import { SearchVideosProps } from '../samples/SearchVideos.sample';
 import TemplatePage from '../templates/TemplatePage';
 
-const PageVideos: FC<{}> = () => {
+const PageVideos: FC = () => {
   return (
     <ErrorBoundary>
       <TemplatePage>

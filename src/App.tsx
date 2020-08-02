@@ -1,14 +1,14 @@
 import './App.css';
 import 'destyle.css';
-import React from 'react';
+import React, { FC } from 'react';
 import GlobalStyle from './styled/global';
 
-function App() {
+const App: FC = () => {
   return (
     <>
       <GlobalStyle />
     </>
   );
-}
+};
 
 export default App;

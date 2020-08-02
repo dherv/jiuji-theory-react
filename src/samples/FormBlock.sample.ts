@@ -1,4 +1,1 @@
-
-export const FormBlockProps = {
-
-}
+export const FormBlockProps = {};

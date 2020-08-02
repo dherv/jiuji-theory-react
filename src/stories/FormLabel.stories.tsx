@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import FormLabel from '../components/FormLabel';
 
 export default {
   component: FormLabel,
-  title: "FormLabel",
+  title: 'FormLabel',
   excludeStories: /.*Data$/,
 };
 
-const actionsData = {};
-
-export const Default = () => (
+export const Default: FC = () => (
   <>
     <FormLabel htmlFor="label">label</FormLabel>
-    <input id="label"></input>
+    <input id="label" />
   </>
 );

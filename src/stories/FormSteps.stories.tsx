@@ -1,29 +1,29 @@
 import { Form, Formik } from 'formik';
-import React from 'react';
+import React, { FC } from 'react';
 import withFormik from 'storybook-formik';
 import { action } from '@storybook/addon-actions';
 import FormSteps from '../components/FormSteps';
 
 export default {
   component: FormSteps,
-  title: "FormSteps",
+  title: 'FormSteps',
   excludeStories: /.*Data$/,
   decorators: [withFormik],
   parameters: {
     formik: {
       initialValues: {
-        steps: [{ name: "step 1" }],
+        steps: [{ name: 'step 1' }],
       },
     },
   },
 };
 
 const actionsData = {
-  onSubmit: action("onSubmit"),
+  onSubmit: action('onSubmit'),
 };
 
-export const Default = () => (
-  <Formik initialValues={{ steps: [{ name: "step 1" }] }} {...actionsData}>
+export const Default: FC = () => (
+  <Formik initialValues={{ steps: [{ name: 'step 1' }] }} {...actionsData}>
     {({ values }) => (
       <Form>
         <FormSteps values={values} />

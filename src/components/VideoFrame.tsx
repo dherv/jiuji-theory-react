@@ -10,7 +10,7 @@ const VideoFrame: FC<{ id: string; title: string }> = ({ id, title }) => {
       frameBorder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
-    ></iframe>
+    />
   );
 };
 

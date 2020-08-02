@@ -4,7 +4,7 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import { AccountFormProps } from '../samples/AccountForm.sample';
 import TemplatePage from '../templates/TemplatePage';
 
-const PageAccount: FC<{}> = () => {
+const PageAccount: FC = () => {
   return (
     <ErrorBoundary>
       <TemplatePage>
