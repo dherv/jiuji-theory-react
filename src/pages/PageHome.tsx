@@ -1,19 +1,22 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import ErrorBoundary from '../components/ErrorBoundary';
 import Technique from '../components/Technique';
 import TemplatePage from '../templates/TemplatePage';
 
 const PageHome: FC<{ techniques: any }> = ({ techniques }) => {
   return (
-    <TemplatePage>
-      <List>
-        {techniques.map((technique: any) => (
-          <li key={technique.id}>
-            <Technique {...technique} />
-          </li>
-        ))}
-      </List>
-    </TemplatePage>
+    <ErrorBoundary>
+      <TemplatePage>
+        <List>
+          {techniques.map((technique: any) => (
+            <li key={technique.id}>
+              <Technique {...technique} />
+            </li>
+          ))}
+        </List>
+      </TemplatePage>
+    </ErrorBoundary>
   );
 };
 

@@ -1,15 +1,18 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import Auth from '../components/Auth';
+import ErrorBoundary from '../components/ErrorBoundary';
 import TemplatePage from '../templates/TemplatePage';
 
 const PageAuth: FC<{}> = () => {
   return (
-    <TemplatePage>
-      <StyledPage>
-        <Auth />
-      </StyledPage>
-    </TemplatePage>
+    <ErrorBoundary>
+      <TemplatePage>
+        <StyledPage>
+          <Auth />
+        </StyledPage>
+      </TemplatePage>
+    </ErrorBoundary>
   );
 };
 

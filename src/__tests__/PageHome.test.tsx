@@ -4,6 +4,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import PageHome from '../pages/PageHome';
 import { PageHomeProps as props } from '../samples/PageHome.sample';
 
+jest.mock("../components/ErrorBoundary");
+
 test("should render PageHome", () => {
   render(<PageHome {...props} />);
 });

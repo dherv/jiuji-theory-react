@@ -4,6 +4,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import PageAuth from '../pages/PageAuth';
 import { PageAuthProps as props } from '../samples/PageAuth.sample';
 
+jest.mock("../components/ErrorBoundary");
+
 test("should render PageAuth", () => {
   render(<PageAuth {...props} />);
 });

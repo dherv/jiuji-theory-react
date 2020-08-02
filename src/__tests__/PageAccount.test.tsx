@@ -4,6 +4,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import PageAccount from '../pages/PageAccount';
 import { PageAccountProps as props } from '../samples/PageAccount.sample';
 
+jest.mock("../components/ErrorBoundary");
+
 test("should render PageAccount", () => {
   render(<PageAccount {...props} />);
 });
