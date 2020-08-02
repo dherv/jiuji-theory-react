@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const TechniqueSteps: FC<{ steps: string[] }> = ({ steps }) => {
   return (
     <ul>
-      {steps.map((step) => (
-        <TechniqueStep key={step}>{step}</TechniqueStep>
+      {steps.map((step, index) => (
+        <TechniqueStep key={index}>{step}</TechniqueStep>
       ))}
     </ul>
   );

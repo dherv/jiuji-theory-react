@@ -16,7 +16,7 @@ const FormSteps: FC<{
           <div>
             {values.steps.length > 0 &&
               values.steps.map((step: any, index: number) => (
-                <FormStep key={step}>
+                <FormStep key={index}>
                   <FormStepField
                     name={`steps.${index}.name`}
                     placeholder="enter a step"
