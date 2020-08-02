@@ -1,4 +1,1 @@
-
-export const PageVideosProps = {
-
-}
+export const PageVideosProps = {};

@@ -1,16 +1,15 @@
-
-import React from "react";
-import FormActions from "../components/FormActions";
-import { action } from "@storybook/addon-actions";
-import { FormActionsProps as propsData } from "../samples/FormActions.sample";
+import React, { FC } from 'react';
+import FormActions from '../components/FormActions';
+import { FormActionsProps as propsData } from '../samples/FormActions.sample';
 
 export default {
   component: FormActions,
-  title: "FormActions",
+  title: 'FormActions',
   excludeStories: /.*Data$/,
 };
 
 const actionsData = {};
 
-export const Default = () => <FormActions  {...propsData}  {...actionsData}/>;
-    
+export const Default: FC = () => (
+  <FormActions {...propsData} {...actionsData} />
+);

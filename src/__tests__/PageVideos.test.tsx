@@ -1,11 +1,12 @@
 import 'jest-styled-components';
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import PageVideos from '../pages/PageVideos';
 import { PageVideosProps as props } from '../samples/PageVideos.sample';
 
-jest.mock("../components/ErrorBoundary");
+jest.mock('../components/ErrorBoundary');
 
-test("should render PageVideos", () => {
+test('should render the layout header', () => {
   render(<PageVideos {...props} />);
+  expect(screen.getByRole('banner')).toBeInTheDocument();
 });

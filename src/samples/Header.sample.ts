@@ -1,4 +1,1 @@
-
-export const HeaderProps = {
-
-}
+export const HeaderProps = {};

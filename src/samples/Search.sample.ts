@@ -1,4 +1,1 @@
-
-export const SearchProps = {
-
-}
+export const SearchProps = {};

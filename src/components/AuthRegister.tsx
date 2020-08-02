@@ -13,23 +13,22 @@ interface Values {
   verifyPassword: string;
 }
 
-const AuthRegister: FC<{}> = () => {
+const AuthRegister: FC = () => {
   return (
     <Formik
       initialValues={{
-        name: "",
-        email: "",
-        password: "",
-        verifyPassword: "",
+        name: '',
+        email: '',
+        password: '',
+        verifyPassword: '',
       }}
       onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
         }, 200);
       }}
     >
-      {({ values }) => (
+      {() => (
         <Form>
           <FormBlock>
             <FormLabel htmlFor="name">name</FormLabel>

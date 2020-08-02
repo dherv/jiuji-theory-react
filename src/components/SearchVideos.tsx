@@ -5,25 +5,25 @@ import { SearchVideoListProps } from '../samples/SearchVideoList.sample';
 import Search from './FormSearch';
 import SearchVideoList from './SearchVideoList';
 
-const SearchVideos: FC<{}> = () => {
+const SearchVideos: FC = () => {
   const handleClick = () => {
-    console.log("clicked");
+    console.log('clicked');
   };
   return (
     <StyledSearchVideos>
       <Formik
         initialValues={{
-          query: "",
+          query: '',
         }}
         onSubmit={() => {}}
       >
-        <StyledSearch></StyledSearch>
+        <StyledSearch />
       </Formik>
       <SearchVideoList
         videos={SearchVideoListProps.videos}
         onClick={handleClick}
         selected={false}
-      ></SearchVideoList>
+      />
     </StyledSearchVideos>
   );
 };

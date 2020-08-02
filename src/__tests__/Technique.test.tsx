@@ -9,51 +9,51 @@ const props = {
   onClick: jest.fn(),
 };
 
-test("should display the top component correctly", () => {
+test('should display the top component correctly', () => {
   render(<Technique {...props} />);
-  expect(screen.getByText("triangle")).toBeInTheDocument();
-  expect(screen.getByText("john")).toBeInTheDocument();
-  expect(screen.getByText("offensive")).toBeInTheDocument();
-  expect(screen.getByText("kimura")).toBeInTheDocument();
+  expect(screen.getByText('triangle')).toBeInTheDocument();
+  expect(screen.getByText('john')).toBeInTheDocument();
+  expect(screen.getByText('offensive')).toBeInTheDocument();
+  expect(screen.getByText('kimura')).toBeInTheDocument();
 });
 
-test("should hide content when selected false", async () => {
+test('should hide content when selected false', async () => {
   render(<Technique {...props} selected={false} />);
-  expect(screen.queryByText("video title")).toBeNull();
-  expect(screen.queryByText("video description")).toBeNull();
+  expect(screen.queryByText('video title')).toBeNull();
+  expect(screen.queryByText('video description')).toBeNull();
 });
 
-test("should call onClick prop", async () => {
+test('should call onClick prop', async () => {
   render(<Technique {...props} selected={false} />);
-  expect(screen.queryByText("video title")).toBeNull();
-  expect(screen.queryByText("video description")).toBeNull();
-  fireEvent.click(screen.getByText("triangle"));
+  expect(screen.queryByText('video title')).toBeNull();
+  expect(screen.queryByText('video description')).toBeNull();
+  fireEvent.click(screen.getByText('triangle'));
   expect(props.onClick).toHaveBeenCalledTimes(1);
 });
 
-test.skip("should show the content when top component gets clicked", async () => {
+test.skip('should show the content when top component gets clicked', async () => {
   render(<Technique {...props} selected={false} />);
-  expect(screen.queryByText("video title")).toBeNull();
-  expect(screen.queryByText("video description")).toBeNull();
-  fireEvent.click(screen.getByText("triangle"));
+  expect(screen.queryByText('video title')).toBeNull();
+  expect(screen.queryByText('video description')).toBeNull();
+  fireEvent.click(screen.getByText('triangle'));
   await waitFor(() => {
-    expect(screen.getByText("video title")).toBeInTheDocument();
-    expect(screen.getByText("video description")).toBeInTheDocument();
+    expect(screen.getByText('video title')).toBeInTheDocument();
+    expect(screen.getByText('video description')).toBeInTheDocument();
   });
 });
 
-test("should render multiple videos", async () => {
+test('should render multiple videos', async () => {
   render(<Technique {...props} />);
-  expect(screen.queryAllByTitle("video title")).toHaveLength(3);
+  expect(screen.queryAllByTitle('video title')).toHaveLength(3);
 });
 
-test("should render multiple videos with content", async () => {
+test('should render multiple videos with content', async () => {
   render(<Technique {...props} />);
-  expect(screen.queryAllByText("video title")).toHaveLength(3);
+  expect(screen.queryAllByText('video title')).toHaveLength(3);
 });
 
-test("should render TechniqueButtons", () => {
+test('should render TechniqueButtons', () => {
   render(<Technique {...props} />);
-  expect(screen.getByTitle("technique-archive")).toBeInTheDocument();
-  expect(screen.getByTitle("technique-edit")).toBeInTheDocument();
+  expect(screen.getByTitle('technique-archive')).toBeInTheDocument();
+  expect(screen.getByTitle('technique-edit')).toBeInTheDocument();
 });

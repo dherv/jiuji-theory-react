@@ -1,8 +1,8 @@
-import { Form, Formik } from 'formik';
+import { Form } from 'formik';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-const TemplateForm: FC<{}> = ({ children }) => {
+const TemplateForm: FC = ({ children }) => {
   return (
     <FormContainer>
       <Form>{children}</Form>

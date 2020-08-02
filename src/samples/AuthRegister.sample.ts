@@ -1,4 +1,1 @@
-
-export const AuthRegisterProps = {
-
-}
+export const AuthRegisterProps = {};

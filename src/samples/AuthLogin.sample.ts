@@ -1,4 +1,1 @@
-
-export const AuthLoginProps = {
-
-}
+export const AuthLoginProps = {};

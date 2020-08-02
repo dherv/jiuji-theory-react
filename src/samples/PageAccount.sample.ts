@@ -1,4 +1,1 @@
-
-export const PageAccountProps = {
-
-}
+export const PageAccountProps = {};

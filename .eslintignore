@@ -6,3 +6,16 @@ dist
 coverage
 # build
 build
+# samples
+samples
+# storybook
+.storybook
+#circleci
+.circleci
+#cypress
+cypress/fixtures
+cypress/plugins
+cypress/support
+//TODO: remove serviceWorker from ignore
+# service worker from create react app will be ignore until PWA is setup
+serviceWorker.ts

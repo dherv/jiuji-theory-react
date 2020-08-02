@@ -1,11 +1,11 @@
 import React, { FC, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import AuthLogin from '../components/AuthLogin';
-import AuthRegister from '../components/AuthRegister';
-import Button from '../components/Button';
 import { themeWhite } from '../styled/themes';
+import AuthLogin from './AuthLogin';
+import AuthRegister from './AuthRegister';
+import Button from './Button';
 
-const Auth: FC<{}> = ({}) => {
+const Auth: FC = () => {
   const [register, setRegister] = useState<boolean>(false);
 
   const handleClick = () => {
@@ -13,8 +13,8 @@ const Auth: FC<{}> = ({}) => {
   };
 
   const AuthForm = register ? <AuthRegister /> : <AuthLogin />;
-  const title = register ? "register" : "login";
-  const switchButtonText = register ? "login" : "register";
+  const title = register ? 'register' : 'login';
+  const switchButtonText = register ? 'login' : 'register';
 
   return (
     <StyledAuth>

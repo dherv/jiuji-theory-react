@@ -1,4 +1,1 @@
-
-export const PageCreateEditProps = {
-
-}
+export const PageCreateEditProps = {};

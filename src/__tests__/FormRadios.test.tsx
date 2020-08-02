@@ -5,9 +5,9 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import FormRadios from '../components/FormRadios';
 import { FormRadiosProps as props } from '../samples/FormRadios.sample';
 
-test("should call onChange when clicked", async () => {
+test('should call onChange when clicked', async () => {
   render(
-    <Formik initialValues={{ name: "" }} onSubmit={jest.fn()}>
+    <Formik initialValues={{ name: '' }} onSubmit={jest.fn()}>
       {({ values }) => (
         <Form>
           <FormRadios {...props} selected={values.name} />
@@ -15,24 +15,24 @@ test("should call onChange when clicked", async () => {
       )}
     </Formik>
   );
-  expect(screen.getByText("unchecked").parentElement).toHaveStyleRule(
-    "background-color",
-    "#fff"
+  expect(screen.getByText('unchecked').parentElement).toHaveStyleRule(
+    'background-color',
+    '#fff'
   );
 
-  fireEvent.click(screen.getByText("unchecked"));
+  fireEvent.click(screen.getByText('unchecked'));
 
   await waitFor(() => {
-    expect(screen.getByText("unchecked").parentElement).toHaveStyleRule(
-      "background-color",
-      "rgba(18,70,246,0.10)"
+    expect(screen.getByText('unchecked').parentElement).toHaveStyleRule(
+      'background-color',
+      'rgba(18,70,246,0.10)'
     );
   });
 });
 
-test("should render a checked radio button", () => {
+test('should render a checked radio button', () => {
   const { asFragment } = render(
-    <Formik initialValues={{ name: "" }} onSubmit={jest.fn()}>
+    <Formik initialValues={{ name: '' }} onSubmit={jest.fn()}>
       <Form>
         <FormRadios {...props} selected="checked" />
       </Form>
@@ -41,9 +41,9 @@ test("should render a checked radio button", () => {
   expect(asFragment()).toMatchSnapshot();
 });
 
-test("should render an unchecked radio button", () => {
+test('should render an unchecked radio button', () => {
   const { asFragment } = render(
-    <Formik initialValues={{ name: "" }} onSubmit={jest.fn()}>
+    <Formik initialValues={{ name: '' }} onSubmit={jest.fn()}>
       <Form>
         <FormRadios {...props} selected="unchecked" />
       </Form>

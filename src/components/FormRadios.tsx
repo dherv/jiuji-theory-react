@@ -9,7 +9,6 @@ const FormRadio: FC<{ name: string; data: any[]; selected: string }> = ({
   name,
   data,
   selected,
-  ...rest
 }) => {
   return (
     <div role="group" aria-labelledby={name}>
@@ -24,7 +23,7 @@ const FormRadio: FC<{ name: string; data: any[]; selected: string }> = ({
               theme={selected === d.name ? themeBlue : themeBlueLight}
             >
               <label
-                style={{ display: "block", padding: ".5rem 1rem" }}
+                style={{ display: 'block', padding: '.5rem 1rem' }}
                 htmlFor={d.name}
               >
                 {d.name}
@@ -36,8 +35,8 @@ const FormRadio: FC<{ name: string; data: any[]; selected: string }> = ({
               value={d.name}
               name={name}
               id={d.name}
-              style={{ display: "none" }}
-            ></Field>
+              style={{ display: 'none' }}
+            />
           </Fragment>
         ))}
       </FormRadioGroup>

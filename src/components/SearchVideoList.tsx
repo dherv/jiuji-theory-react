@@ -11,7 +11,7 @@ const SearchVideoList: FC<{
     <ul>
       {videos.map((video: any) => (
         <ListItem key={video.id}>
-          <VideoAdd {...video} selected={selected} onClick={onClick}></VideoAdd>
+          <VideoAdd {...video} selected={selected} onClick={onClick} />
         </ListItem>
       ))}
     </ul>

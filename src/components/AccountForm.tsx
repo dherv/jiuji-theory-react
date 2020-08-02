@@ -25,22 +25,21 @@ const AccountForm: FC<{
   types: any[];
 }> = ({ clubs, locations, belts, types }) => {
   const [showAddPanel, setShowAddPanel] = useState<boolean>(false);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = () => {
     setShowAddPanel(true);
   };
   return (
     <Formik
       initialValues={{
-        name: "",
-        email: "",
-        club: "",
-        location: "",
-        belt: "",
-        logo: "",
+        name: '',
+        email: '',
+        club: '',
+        location: '',
+        belt: '',
+        logo: '',
       }}
       onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
         }, 200);
       }}
@@ -64,17 +63,17 @@ const AccountForm: FC<{
 
           <FormBlock>
             <FormLabel htmlFor="club">club</FormLabel>
-            <FormSelect name="club" data={clubs}></FormSelect>
+            <FormSelect name="club" data={clubs} />
           </FormBlock>
 
           <FormBlock>
             <FormLabel htmlFor="location">location</FormLabel>
-            <FormSelect name="location" data={locations}></FormSelect>
+            <FormSelect name="location" data={locations} />
           </FormBlock>
 
           <FormBlock>
             <FormLabel htmlFor="belt">belt</FormLabel>
-            <FormSelect name="belt" data={belts}></FormSelect>
+            <FormSelect name="belt" data={belts} />
           </FormBlock>
 
           <StyledButton type="button" onClick={handleClick}>
@@ -85,13 +84,13 @@ const AccountForm: FC<{
             <>
               <FormBlock>
                 <FormLabel htmlFor="type">type</FormLabel>
-                <FormSelect name="type" data={types}></FormSelect>
+                <FormSelect name="type" data={types} />
               </FormBlock>
               <FormBlock>
                 <FormLabel htmlFor="name">name</FormLabel>
                 <FormField id="name" name="name" placeholder="name" />
               </FormBlock>
-              {values.type === "clubs" && (
+              {values.type === 'clubs' && (
                 <FormBlock>
                   <FormLabel htmlFor="logo">logo</FormLabel>
                   <FormField
@@ -104,7 +103,7 @@ const AccountForm: FC<{
               )}
             </>
           ) : null}
-          <FormActions></FormActions>
+          <FormActions />
         </TemplateForm>
       )}
     </Formik>

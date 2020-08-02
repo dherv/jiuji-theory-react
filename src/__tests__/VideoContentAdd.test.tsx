@@ -9,27 +9,23 @@ const props = {
   onClick: jest.fn(),
 };
 
-test("should render VideoContentAdd", () => {
+test('should render VideoContentAdd title', () => {
   render(<VideoContentAdd {...props} />);
+  expect(screen.getByText('video title')).toBeInTheDocument();
 });
 
-test("should render VideoContentAdd title", () => {
+test('should render VideoContentAdd description', () => {
   render(<VideoContentAdd {...props} />);
-  expect(screen.getByText("video title")).toBeInTheDocument();
+  expect(screen.getByText('video description')).toBeInTheDocument();
 });
 
-test("should render VideoContentAdd description", () => {
+test('should render an add icon', () => {
   render(<VideoContentAdd {...props} />);
-  expect(screen.getByText("video description")).toBeInTheDocument();
+  expect(screen.getByTitle('video-add-icon')).toBeInTheDocument();
 });
 
-test("should render an add icon", () => {
+test('should call onClick props when icon is clicked', () => {
   render(<VideoContentAdd {...props} />);
-  expect(screen.getByTitle("video-add-icon")).toBeInTheDocument();
-});
-
-test("should call onClick props when icon is clicked", () => {
-  render(<VideoContentAdd {...props} />);
-  fireEvent.click(screen.getByTitle("video-add-icon"));
+  fireEvent.click(screen.getByTitle('video-add-icon'));
   expect(props.onClick).toHaveBeenCalled();
 });

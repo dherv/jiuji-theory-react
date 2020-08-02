@@ -1,12 +1,11 @@
 import React, { FC, useState } from 'react';
-import { IconContext } from 'react-icons';
 import { MdMenu } from 'react-icons/md';
 import styled from 'styled-components';
 import { themeBlueHeader } from '../styled/themes';
 import HeaderNav from './HeaderNav';
 import HeaderTitle from './HeaderTitle';
 
-const Header: FC<{}> = () => {
+const Header: FC = () => {
   const [showNav, setShowNav] = useState<boolean>(false);
   const handleClick = () => {
     setShowNav((prevShowNav) => !prevShowNav);

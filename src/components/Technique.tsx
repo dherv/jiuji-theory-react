@@ -27,8 +27,8 @@ const Technique: FC<{
       </Container>
       {selected && (
         <Content>
-          <TechniqueSteps {...TechniqueStepsProps}></TechniqueSteps>
-          <TechniqueVideoList {...TechniqueVideoListProps}></TechniqueVideoList>
+          <TechniqueSteps {...TechniqueStepsProps} />
+          <TechniqueVideoList {...TechniqueVideoListProps} />
           <TechniqueButtons />
         </Content>
       )}

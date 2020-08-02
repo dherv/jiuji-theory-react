@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { FC } from 'react';
 import CreateEditForm from '../components/CreateEditForm';
 import {
-CreateFormProps as createPropsData, EditFormProps as editPropsData
+  CreateFormProps as createPropsData,
+  EditFormProps as editPropsData,
 } from '../samples/CreateEditForm.sample';
 
 export default {
   component: CreateEditForm,
-  title: "CreateEditForm",
+  title: 'CreateEditForm',
   excludeStories: /.*Data$/,
 };
 
 const actionsData = {};
 
-export const Edit = () => (
+export const Edit: FC = () => (
   <CreateEditForm {...actionsData} {...editPropsData} />
 );
-export const Create = () => (
+export const Create: FC = () => (
   <CreateEditForm {...actionsData} {...createPropsData} />
 );
