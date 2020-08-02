@@ -1,6 +1,11 @@
 import { Formik, FormikHelpers } from 'formik';
 import React, { FC } from 'react';
 import TemplateForm from '../templates/TemplateForm';
+import { IMove } from '../types/Move.interface';
+import { IPosition } from '../types/Position.interface';
+import { IStep } from '../types/Step.interface';
+import { ISubmission } from '../types/Submission.interface';
+import { ITeacher } from '../types/Teacher.interface';
 import FormActions from './FormActions';
 import FormBlock from './FormBlock';
 import FormField from './FormField';
@@ -12,25 +17,25 @@ import FormSteps from './FormSteps';
 interface Values {
   name: string;
   teacher: string;
-  type: string;
+  move: string;
   position: string;
   technique: string;
-  steps: { name: string }[];
+  steps: IStep[];
 }
 
 const CreateEditForm: FC<{
-  teachers: any;
-  types: any;
-  positions: any;
-  techniques: any;
-  steps: { name: string }[];
-}> = ({ teachers, types, positions, techniques, steps }) => {
+  teachers: ITeacher[];
+  moves: IMove[];
+  positions: IPosition[];
+  techniques: ISubmission[];
+  steps: IStep[];
+}> = ({ teachers, moves, positions, techniques, steps }) => {
   return (
     <Formik
       initialValues={{
         name: '',
         teacher: '',
-        type: '',
+        move: '',
         position: '',
         technique: '',
         steps,
@@ -57,7 +62,7 @@ const CreateEditForm: FC<{
           </FormBlock>
 
           <FormBlock>
-            <FormRadios name="type" data={types} selected={values.type} />
+            <FormRadios name="type" data={moves} selected={values.move} />
           </FormBlock>
 
           <FormBlock>

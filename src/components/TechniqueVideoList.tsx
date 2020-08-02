@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { IVideo } from '../types/Video.interface';
 import Video from './Video';
 
-const TechniqueVideoList: FC<{ videos: any[] }> = ({ videos }) => {
+const TechniqueVideoList: FC<{ videos: IVideo[] }> = ({ videos }) => {
   return (
     <StyledList>
       {videos.map((video) => (

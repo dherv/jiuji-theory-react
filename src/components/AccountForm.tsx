@@ -2,6 +2,10 @@ import { Formik, FormikHelpers } from 'formik';
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import TemplateForm from '../templates/TemplateForm';
+import { IAddType } from '../types/AddType.interface';
+import { IBelt } from '../types/Belt.interface';
+import { IClub } from '../types/Club.interface';
+import { ILocation } from '../types/Location.interface';
 import Button from './Button';
 import FormActions from './FormActions';
 import FormBlock from './FormBlock';
@@ -19,10 +23,10 @@ interface Values {
 }
 
 const AccountForm: FC<{
-  clubs: any[];
-  locations: any[];
-  belts: any[];
-  types: any[];
+  clubs: IClub[];
+  locations: ILocation[];
+  belts: IBelt[];
+  types: IAddType[];
 }> = ({ clubs, locations, belts, types }) => {
   const [showAddPanel, setShowAddPanel] = useState<boolean>(false);
   const handleClick = () => {

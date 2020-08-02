@@ -2,21 +2,24 @@ import { Field } from 'formik';
 import React, { FC, Fragment } from 'react';
 import styled from 'styled-components';
 import { themeBlue, themeBlueLight } from '../styled/themes';
+import { IMove } from '../types/Move.interface';
+import { ITeacher } from '../types/Teacher.interface';
 import Button from './Button';
 import FormLabel from './FormLabel';
 
-const FormRadio: FC<{ name: string; data: any[]; selected: string }> = ({
-  name,
-  data,
-  selected,
-}) => {
+type Data = ITeacher | IMove;
+const FormRadio: FC<{
+  name: string;
+  data: Data[];
+  selected: string;
+}> = ({ name, data, selected }) => {
   return (
     <div role="group" aria-labelledby={name}>
       <FormLabel as="div" id={name}>
         {name}
       </FormLabel>
       <FormRadioGroup>
-        {data.map((d) => (
+        {data.map((d: Data) => (
           <Fragment key={d.id}>
             <FormRadioButton
               type="button"

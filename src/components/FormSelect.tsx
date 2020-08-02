@@ -2,14 +2,17 @@ import { Field } from 'formik';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { themeBlue } from '../styled/themes';
+import { IPosition } from '../types/Position.interface';
+import { ISubmission } from '../types/Submission.interface';
 
+type Data = IPosition | ISubmission;
 const FormSelect: FC<{
   name: string;
-  data: any[];
+  data: Data[];
 }> = ({ name, data }) => {
   return (
     <StyledSelect id={name} name={name} theme={themeBlue} component="select">
-      {data.map((d: any) => (
+      {data.map((d: Data) => (
         <option key={d.id} value={d.name}>
           {d.name}
         </option>

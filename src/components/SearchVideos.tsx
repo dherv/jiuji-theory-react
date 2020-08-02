@@ -6,9 +6,7 @@ import Search from './FormSearch';
 import SearchVideoList from './SearchVideoList';
 
 const SearchVideos: FC = () => {
-  const handleClick = () => {
-    console.log('clicked');
-  };
+  const handleClick = () => {};
   return (
     <StyledSearchVideos>
       <Formik

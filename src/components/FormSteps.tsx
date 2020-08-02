@@ -2,6 +2,7 @@ import { Field, FieldArray } from 'formik';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { themeBlue } from '../styled/themes';
+import { IStep } from '../types/Step.interface';
 import Button from './Button';
 import FormLabel from './FormLabel';
 
@@ -15,7 +16,7 @@ const FormSteps: FC<{
         {({ remove, push }) => (
           <div>
             {values.steps.length > 0 &&
-              values.steps.map((step: any, index: number) => (
+              values.steps.map((step: IStep, index: number) => (
                 <FormStep key={index}>
                   <FormStepField
                     name={`steps.${index}.name`}

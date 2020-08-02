@@ -3,15 +3,17 @@ import styled from 'styled-components';
 import ErrorBoundary from '../components/ErrorBoundary';
 import Technique from '../components/Technique';
 import TemplatePage from '../templates/TemplatePage';
+import { ITechniqueNote } from '../types/TechniqueNote.interface';
 
-const PageHome: FC<{ techniques: any }> = ({ techniques }) => {
+const PageHome: FC<{ techniques: ITechniqueNote[] }> = ({ techniques }) => {
+  const handleClick = () => {};
   return (
     <ErrorBoundary>
       <TemplatePage>
         <List>
-          {techniques.map((technique: any) => (
+          {techniques.map((technique: ITechniqueNote) => (
             <li key={technique.id}>
-              <Technique {...technique} />
+              <Technique {...technique} onClick={handleClick} />
             </li>
           ))}
         </List>

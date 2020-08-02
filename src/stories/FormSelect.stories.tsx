@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import withFormik from 'storybook-formik';
 import FormSelect from '../components/FormSelect';
 import { FormSelectProps as propsData } from '../samples/FormSelect.sample';
