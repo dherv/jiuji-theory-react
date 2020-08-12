@@ -48,6 +48,18 @@ test('should validate the fields correctly', async () => {
       'border',
       '1px solid #ff867c'
     );
+    expect(screen.getByLabelText('email')).toHaveStyleRule(
+      'border',
+      '1px solid #ff867c'
+    );
+    expect(screen.getByLabelText('password')).toHaveStyleRule(
+      'border',
+      '1px solid #ff867c'
+    );
+    expect(screen.getByLabelText('verify password')).toHaveStyleRule(
+      'border',
+      '1px solid #ff867c'
+    );
   });
 });
 test('should validate the fields correctly after correcting them', async () => {
