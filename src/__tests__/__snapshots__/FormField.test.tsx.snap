@@ -6,7 +6,7 @@ exports[`should render the FormField correctly 1`] = `
     action="#"
   >
     <input
-      class="sc-AxjAm jMUqqh"
+      class="sc-AxjAm bTRpnZ"
       placeholder="test"
       theme="[object Object]"
       value="[object Object]"
