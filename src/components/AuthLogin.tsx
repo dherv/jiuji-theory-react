@@ -14,11 +14,11 @@ interface Values {
 }
 
 const SignupSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Required'),
+  email: Yup.string().email('invalid email').required('required'),
   password: Yup.string()
-    .min(8, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Password is required'),
+    .min(8, 'too short!')
+    .max(50, 'too long!')
+    .required('password is required'),
 });
 
 const AuthLogin: FC = () => {

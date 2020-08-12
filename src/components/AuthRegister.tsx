@@ -17,17 +17,17 @@ interface Values {
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
-    .min(5, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
+    .min(5, 'too short!')
+    .max(50, 'too long!')
+    .required('required'),
   password: Yup.string()
-    .min(8, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Password is required'),
+    .min(8, 'too short!')
+    .max(50, 'too long!')
+    .required('password is required'),
   verifyPassword: Yup.string()
-    .oneOf([Yup.ref('password')], 'Passwords must match')
-    .required('Password verification is required'),
-  email: Yup.string().email('Invalid email').required('Required'),
+    .oneOf([Yup.ref('password')], 'passwords must match')
+    .required('password verification is required'),
+  email: Yup.string().email('invalid email').required('required'),
 });
 
 const AuthRegister: FC = () => {

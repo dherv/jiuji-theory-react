@@ -30,7 +30,7 @@ test('should render a register button', () => {
 });
 
 test('should display the fields correctly with no validation', () => {
-  expect(screen.queryByText('Required')).toBeNull();
+  expect(screen.queryByText('required')).toBeNull();
   expect(screen.getByLabelText('name')).toHaveStyleRule(
     'border',
     '1px solid rgba(18,70,246,0.1)'
@@ -39,10 +39,10 @@ test('should display the fields correctly with no validation', () => {
 test('should validate the fields correctly', async () => {
   fireEvent.click(screen.getByText('register'));
   await waitFor(() => {
-    expect(screen.queryAllByText('Required')).toHaveLength(2);
-    expect(screen.queryAllByText('Password is required')).toHaveLength(1);
+    expect(screen.queryAllByText('required')).toHaveLength(2);
+    expect(screen.queryAllByText('password is required')).toHaveLength(1);
     expect(
-      screen.queryAllByText('Password verification is required')
+      screen.queryAllByText('password verification is required')
     ).toHaveLength(1);
     expect(screen.getByLabelText('name')).toHaveStyleRule(
       'border',
