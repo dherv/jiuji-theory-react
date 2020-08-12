@@ -1,10 +1,10 @@
 import { Form, Formik, FormikHelpers } from 'formik';
 import React, { FC } from 'react';
-import styled from 'styled-components';
 import * as Yup from 'yup';
 import { themeBlue } from '../styled/themes';
 import Button from './Button';
 import FormBlock from './FormBlock';
+import FormError from './FormError';
 import FormField from './FormField';
 import FormLabel from './FormLabel';
 
@@ -114,12 +114,5 @@ const AuthRegister: FC = () => {
     </Formik>
   );
 };
-
-const FormError = styled.small`
-  color: #ff867c;
-  font-size: 12px;
-  text-transform: lowercase;
-  margin-top: 0.5rem;
-`;
 
 export default AuthRegister;
