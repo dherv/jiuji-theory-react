@@ -1,6 +1,7 @@
 import { Formik, FormikHelpers } from 'formik';
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
+import * as Yup from 'yup';
 import TemplateForm from '../templates/TemplateForm';
 import { IAddType } from '../types/AddType.interface';
 import { IBelt } from '../types/Belt.interface';
@@ -9,6 +10,7 @@ import { ILocation } from '../types/Location.interface';
 import Button from './Button';
 import FormActions from './FormActions';
 import FormBlock from './FormBlock';
+import FormError from './FormError';
 import FormField from './FormField';
 import FormLabel from './FormLabel';
 import FormSelect from './FormSelect';
@@ -21,6 +23,14 @@ interface Values {
   belt: string;
   type?: string;
 }
+
+const SignupSchema = Yup.object().shape({
+  email: Yup.string().email('invalid email').required('required'),
+  name: Yup.string()
+    .min(8, 'too short!')
+    .max(50, 'too long!')
+    .required('required'),
+});
 
 const AccountForm: FC<{
   clubs: IClub[];
@@ -42,17 +52,28 @@ const AccountForm: FC<{
         belt: '',
         logo: '',
       }}
+      validationSchema={SignupSchema}
       onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
         setTimeout(() => {
           setSubmitting(false);
         }, 200);
       }}
     >
-      {({ values }) => (
+      {({ values, errors, touched }) => (
         <TemplateForm>
           <FormBlock>
             <FormLabel htmlFor="name">name</FormLabel>
-            <FormField id="name" name="name" placeholder="name" />
+            <FormField
+              type="text"
+              id="name"
+              name="name"
+              placeholder="name"
+              error={errors.name}
+              touched={touched.name ? touched.name.toString() : undefined}
+            />
+            {errors.name && touched.name ? (
+              <FormError>{errors.name}</FormError>
+            ) : null}
           </FormBlock>
 
           <FormBlock>
@@ -62,7 +83,12 @@ const AccountForm: FC<{
               id="email"
               name="email"
               placeholder="email"
+              error={errors.email}
+              touched={touched.email ? touched.email.toString() : undefined}
             />
+            {errors.email && touched.email ? (
+              <FormError>{errors.email}</FormError>
+            ) : null}
           </FormBlock>
 
           <FormBlock>
