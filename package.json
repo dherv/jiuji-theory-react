@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "jiuji-theory-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,6 +15,7 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/webfontloader": "^1.6.32",
+    "@types/yup": "^0.29.4",
     "destyle.css": "^1.0.13",
     "formik": "^2.1.5",
     "react": "^16.13.1",
@@ -24,7 +25,8 @@
     "storybook-formik": "^2.1.1",
     "styled-components": "^5.1.1",
     "typescript": "~3.7.2",
-    "webfontloader": "^1.6.28"
+    "webfontloader": "^1.6.28",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,7 +38,7 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "prettier:check": "prettier --check src/**/*.ts{,x}",
-    "prettier:format": "prettier --write src/**/*.ts{,x}",
+    "prettier:write": "prettier --write src/**/*.ts{,x}",
     "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "eslintConfig": {

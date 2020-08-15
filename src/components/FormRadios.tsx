@@ -2,12 +2,12 @@ import { Field } from 'formik';
 import React, { FC, Fragment } from 'react';
 import styled from 'styled-components';
 import { themeBlue, themeBlueLight } from '../styled/themes';
-import { IMove } from '../types/Move.interface';
+import { IGuard } from '../types/Guard.interface';
 import { ITeacher } from '../types/Teacher.interface';
 import Button from './Button';
 import FormLabel from './FormLabel';
 
-type Data = ITeacher | IMove;
+type Data = ITeacher | IGuard;
 const FormRadio: FC<{
   name: string;
   data: Data[];
