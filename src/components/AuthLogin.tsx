@@ -1,6 +1,7 @@
 import { Form, Formik, FormikHelpers } from 'formik';
 import React, { FC } from 'react';
 import * as Yup from 'yup';
+import Api from '../api';
 import { themeBlue } from '../styled/themes';
 import Button from './Button';
 import FormBlock from './FormBlock';
@@ -22,6 +23,14 @@ const SignupSchema = Yup.object().shape({
 });
 
 const AuthLogin: FC = () => {
+  const handleSubmit = (values: Values, resetForm: () => void) => {
+    return Api.post(`/auth/login`, values)
+      .then((response) => {
+        localStorage.setItem('token', response.token);
+        return resetForm();
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <Formik
       initialValues={{
@@ -29,10 +38,13 @@ const AuthLogin: FC = () => {
         password: '',
       }}
       validationSchema={SignupSchema}
-      onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
-        setTimeout(() => {
-          setSubmitting(false);
-        }, 200);
+      onSubmit={async (
+        values: Values,
+        { setSubmitting, resetForm }: FormikHelpers<Values>
+      ) => {
+        const reset = () => resetForm();
+        await handleSubmit(values, reset);
+        setSubmitting(false);
       }}
     >
       {({ errors, touched }) => (
@@ -65,7 +77,9 @@ const AuthLogin: FC = () => {
               <FormError>{errors.password}</FormError>
             ) : null}
           </FormBlock>
-          <Button theme={themeBlue}>login</Button>
+          <Button type="submit" theme={themeBlue}>
+            login
+          </Button>
         </Form>
       )}
     </Formik>
