@@ -35,6 +35,7 @@ const AuthRegister: FC = () => {
   const handleSubmit = (values: Values, resetForm: () => void) => {
     return Api.post(`/auth/register`, values)
       .then((response) => {
+        localStorage.setItem('token', response.token);
         return resetForm();
       })
       .catch((error) => console.error(error));

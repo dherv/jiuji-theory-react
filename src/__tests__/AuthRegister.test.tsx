@@ -8,7 +8,7 @@ import { AuthRegisterProps as props } from '../samples/AuthRegister.sample';
 
 const server = setupServer(
   rest.post('http://localhost:3000/v1/auth/register', (req, res, ctx) => {
-    return res(ctx.json({}));
+    return res(ctx.json({ token: 'mocked_user_token' }));
   })
 );
 
@@ -112,7 +112,7 @@ test('should validate the fields correctly after correcting them', async () => {
   });
 });
 
-test('should sbmit the form correctly', async () => {
+test('should submit the form correctly', async () => {
   // no validation errors
   fireEvent.change(screen.getByLabelText('name'), {
     target: { value: 'username' },
@@ -137,5 +137,6 @@ test('should sbmit the form correctly', async () => {
     expect(screen.queryByLabelText('email')).toHaveValue('');
     expect(screen.queryByLabelText('password')).toHaveValue('');
     expect(screen.queryByLabelText('verify password')).toHaveValue('');
+    expect(window.localStorage.getItem('token')).toEqual('mocked_user_token');
   });
 });
