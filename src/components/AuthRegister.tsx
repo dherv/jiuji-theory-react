@@ -1,6 +1,7 @@
 import { Form, Formik, FormikHelpers } from 'formik';
 import React, { FC } from 'react';
 import * as Yup from 'yup';
+import Api from '../api';
 import { themeBlue } from '../styled/themes';
 import Button from './Button';
 import FormBlock from './FormBlock';
@@ -31,6 +32,13 @@ const SignupSchema = Yup.object().shape({
 });
 
 const AuthRegister: FC = () => {
+  const handleSubmit = (values: Values, resetForm: () => void) => {
+    return Api.post(`/auth/register`, values)
+      .then((response) => {
+        return resetForm();
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <Formik
       initialValues={{
@@ -40,10 +48,13 @@ const AuthRegister: FC = () => {
         verifyPassword: '',
       }}
       validationSchema={SignupSchema}
-      onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
-        setTimeout(() => {
-          setSubmitting(false);
-        }, 200);
+      onSubmit={async (
+        values: Values,
+        { setSubmitting, resetForm }: FormikHelpers<Values>
+      ) => {
+        setSubmitting(false);
+        const reset = () => resetForm();
+        await handleSubmit(values, reset);
       }}
     >
       {({ errors, touched }) => (
