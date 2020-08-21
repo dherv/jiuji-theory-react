@@ -12,6 +12,9 @@ const FormSelect: FC<{
 }> = ({ name, data }) => {
   return (
     <StyledSelect id={name} name={name} theme={themeBlue} component="select">
+      <option disabled defaultValue value="">
+        select an option
+      </option>
       {data.map((d: Data) => (
         <option key={d.id} value={d.name}>
           {d.name}

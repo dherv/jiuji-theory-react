@@ -50,7 +50,7 @@ test('should validate the fields correctly', async () => {
   fireEvent.click(screen.getByText('x'));
   fireEvent.click(screen.getByText('ok'));
   await waitFor(() => {
-    expect(screen.queryAllByText('required')).toHaveLength(3);
+    expect(screen.queryAllByText('required')).toHaveLength(5);
     expect(
       screen.getByText('steps field must have at least 1 items')
     ).toBeInTheDocument();

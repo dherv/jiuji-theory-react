@@ -34,6 +34,8 @@ const SignupSchema = Yup.object().shape({
   move: Yup.string().required('required'),
   position: Yup.string().required('required'),
   technique: Yup.string().required('required'),
+  guard: Yup.string().required('required'),
+  submission: Yup.string().required('required'),
   steps: Yup.array().of(Yup.string()).min(1),
 });
 
