@@ -19,12 +19,14 @@ const submissions: ISubmission[] = [
   { id: 1, name: 'triangle' },
   { id: 2, name: 'kimura' },
 ];
+const videos: never[] = [];
 
 const FormBase = {
   teachers,
   guards,
   positions,
   submissions,
+  videos,
 };
 
 export const CreateFormProps = {
@@ -34,10 +36,10 @@ export const CreateFormProps = {
 
 export const EditFormProps = {
   ...FormBase,
-  steps: [{ name: 'step 1' }],
+  steps: [{ text: 'step 1', order: 1 }],
 };
 
 export const CreateEditFormProps = {
   ...FormBase,
-  steps: [{ name: 'step 1' }],
+  steps: [{ text: 'step 1', order: 1 }],
 };

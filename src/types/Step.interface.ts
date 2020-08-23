@@ -1,3 +1,4 @@
 export interface IStep {
-  name: string;
+  text: string;
+  order: number;
 }

@@ -7,7 +7,7 @@ import FormSteps from '../components/FormSteps';
 test('should render FormSteps', () => {
   render(
     <Formik
-      initialValues={{ steps: [{ name: 'step 1' }] }}
+      initialValues={{ steps: [{ text: 'step 1', order: 1 }] }}
       onSubmit={jest.fn()}
     >
       {({ values }) => (
@@ -23,7 +23,7 @@ test('should render FormSteps', () => {
 test('should display a step on click +, enter the input correctly and delete it on click x', async () => {
   render(
     <Formik
-      initialValues={{ steps: [{ name: 'step 1' }] }}
+      initialValues={{ steps: [{ text: 'step 1', order: 1 }] }}
       onSubmit={jest.fn()}
     >
       {({ values }) => (

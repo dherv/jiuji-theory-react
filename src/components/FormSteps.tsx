@@ -7,7 +7,7 @@ import Button from './Button';
 import FormLabel from './FormLabel';
 
 const FormSteps: FC<{
-  values: { steps: { name: string }[] };
+  values: { steps: { text: string; order: number }[] };
 }> = ({ values }) => {
   return (
     <>
@@ -19,11 +19,11 @@ const FormSteps: FC<{
               values.steps.map((step: IStep, index: number) => (
                 <FormStep key={index}>
                   <FormStepField
-                    name={`steps.${index}.name`}
+                    name={`steps.${index}.text`}
                     placeholder="enter a step"
                     type="text"
                     maxLength="100"
-                    value={step.name}
+                    value={step.text}
                   />
                   <div>
                     <Button
@@ -39,7 +39,7 @@ const FormSteps: FC<{
             <Button
               type="button"
               theme={themeBlue}
-              onClick={() => push({ name: '' })}
+              onClick={() => push({ text: '', order: values.steps.length + 1 })}
             >
               +
             </Button>
