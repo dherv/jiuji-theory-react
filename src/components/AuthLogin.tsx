@@ -43,6 +43,7 @@ const AuthLogin: FC = () => {
         { setSubmitting, resetForm }: FormikHelpers<Values>
       ) => {
         const reset = () => resetForm();
+        setSubmitting(true);
         await handleSubmit(values, reset);
         setSubmitting(false);
       }}

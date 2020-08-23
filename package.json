@@ -31,8 +31,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jest-environment-jsdom-sixteen --passWithNoTests",
-    "test:ci": "react-scripts test --env=jest-environment-jsdom-sixteen --passWithNoTests",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen --passWithNoTests --maxWorkers=2",
+    "test:ci": "react-scripts test --env=jest-environment-jsdom-sixteen --passWithNoTests --maxWorkers=2",
     "cypress": "cypress open",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",

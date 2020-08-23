@@ -1,6 +1,7 @@
 import { Formik, FormikHelpers } from 'formik';
 import React, { FC } from 'react';
 import * as Yup from 'yup';
+import Api from '../api';
 import TemplateForm from '../templates/TemplateForm';
 import { IGuard } from '../types/Guard.interface';
 import { IPosition } from '../types/Position.interface';
@@ -22,6 +23,7 @@ interface Values {
   position: string;
   guard: string;
   submission: string;
+  videos: never[];
   steps: IStep[];
 }
 
@@ -31,9 +33,7 @@ const SignupSchema = Yup.object().shape({
     .max(50, 'too long!')
     .required('required'),
   teacher: Yup.string().required('required'),
-  move: Yup.string().required('required'),
   position: Yup.string().required('required'),
-  technique: Yup.string().required('required'),
   guard: Yup.string().required('required'),
   submission: Yup.string().required('required'),
   steps: Yup.array().of(Yup.string()).min(1),
@@ -44,8 +44,16 @@ const CreateEditForm: FC<{
   positions: IPosition[];
   guards: IGuard[];
   submissions: ISubmission[];
+  videos: any[];
   steps: IStep[];
 }> = ({ teachers, positions, guards, submissions, steps }) => {
+  const handleSubmit = (values: Values, resetForm: () => void) => {
+    return Api.post(`/techniques`, values)
+      .then((response) => {
+        return resetForm();
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <Formik
       initialValues={{
@@ -54,13 +62,18 @@ const CreateEditForm: FC<{
         position: '',
         guard: '',
         submission: '',
+        videos: [],
         steps,
       }}
       validationSchema={SignupSchema}
-      onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
-        setTimeout(() => {
-          setSubmitting(false);
-        }, 200);
+      onSubmit={async (
+        values: Values,
+        { setSubmitting, resetForm }: FormikHelpers<Values>
+      ) => {
+        const reset = () => resetForm();
+        setSubmitting(true);
+        await handleSubmit(values, reset);
+        setSubmitting(false);
       }}
     >
       {({ values, errors, touched }) => (

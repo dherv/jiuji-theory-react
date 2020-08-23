@@ -1,10 +1,21 @@
 import 'jest-styled-components';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
 import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CreateEditForm from '../components/CreateEditForm';
 import { CreateEditFormProps as props } from '../samples/CreateEditForm.sample';
 
+const server = setupServer(
+  rest.post('http://localhost:3000/v1/techniques', (req, res, ctx) => {
+    return res(ctx.json({ message: 'test' }));
+  })
+);
+
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
 beforeEach(() => {
   render(<CreateEditForm {...props} />);
 });
@@ -118,6 +129,53 @@ test('should clear the form on click cancel', async () => {
       '#fff'
     );
     expect(screen.getByText('defensive').parentNode).toHaveStyleRule(
+      'background-color',
+      '#fff'
+    );
+  });
+});
+
+test('should submit the form correctly', async () => {
+  // no validation errors
+  fireEvent.change(screen.getByLabelText('name'), {
+    target: { value: 'technique name' },
+  });
+  userEvent.click(screen.getByLabelText('offensive'));
+  userEvent.click(screen.getByLabelText('X'));
+  fireEvent.change(screen.getByLabelText('guard'), {
+    target: { value: 'open guard' },
+  });
+  fireEvent.change(screen.getByLabelText('submission'), {
+    target: { value: 'kimura' },
+  });
+  fireEvent.click(screen.getByText('+'));
+  fireEvent.input(screen.getAllByPlaceholderText('enter a step')[1], {
+    target: { value: 'step 2' },
+  });
+
+  await waitFor(() => {
+    expect(screen.queryByLabelText('name')).toHaveValue('technique name');
+    expect(screen.queryByLabelText('guard')).toHaveValue('open guard');
+    expect(screen.queryByLabelText('submission')).toHaveValue('kimura');
+    expect(screen.queryByDisplayValue('step 2')).toBeInTheDocument();
+    expect(screen.getByText('offensive').parentNode).toHaveStyleRule(
+      'background-color',
+      'rgba(18,70,246,0.10)'
+    );
+    expect(screen.getByText('X').parentNode).toHaveStyleRule(
+      'background-color',
+      'rgba(18,70,246,0.10)'
+    );
+
+    expect(screen.queryByText('required')).toBeNull();
+  });
+  fireEvent.click(screen.getByText('ok'));
+
+  await waitFor(() => {
+    expect(screen.queryByLabelText('name')).toHaveValue('');
+    expect(screen.queryByLabelText('guard')).toHaveValue('');
+    expect(screen.queryByDisplayValue('step 2')).toBeNull();
+    expect(screen.getByText('offensive').parentNode).toHaveStyleRule(
       'background-color',
       '#fff'
     );

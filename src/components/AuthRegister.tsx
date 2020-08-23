@@ -53,9 +53,10 @@ const AuthRegister: FC = () => {
         values: Values,
         { setSubmitting, resetForm }: FormikHelpers<Values>
       ) => {
-        setSubmitting(false);
         const reset = () => resetForm();
+        setSubmitting(true);
         await handleSubmit(values, reset);
+        setSubmitting(false);
       }}
     >
       {({ errors, touched }) => (
