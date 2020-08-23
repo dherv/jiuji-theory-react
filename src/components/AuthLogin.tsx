@@ -23,14 +23,8 @@ const SignupSchema = Yup.object().shape({
 });
 
 const AuthLogin: FC = () => {
-  const handleSubmit = (values: Values, resetForm: () => void) => {
-    return Api.post(`/auth/login`, values)
-      .then((response) => {
-        localStorage.setItem('token', response.token);
-        return resetForm();
-      })
-      .catch((error) => console.error(error));
-  };
+  const handleSubmit = (values: Values) => Api.post(`/auth/login`, values);
+
   return (
     <Formik
       initialValues={{
@@ -42,10 +36,11 @@ const AuthLogin: FC = () => {
         values: Values,
         { setSubmitting, resetForm }: FormikHelpers<Values>
       ) => {
-        const reset = () => resetForm();
         setSubmitting(true);
-        await handleSubmit(values, reset);
+        const { token } = await handleSubmit(values);
         setSubmitting(false);
+        localStorage.setItem('token', token);
+        resetForm();
       }}
     >
       {({ errors, touched }) => (

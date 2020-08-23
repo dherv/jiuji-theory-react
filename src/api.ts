@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/react';
+
 export default class Api {
   static scheme = 'http';
 
@@ -19,9 +21,11 @@ export default class Api {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify(body),
-    }).then((response) => {
-      if (response.ok) return response.json();
-      return new Error();
-    });
+    })
+      .then((response) => {
+        if (response.ok) return response.json();
+        return response;
+      })
+      .catch((error) => Sentry.captureException(error));
   }
 }

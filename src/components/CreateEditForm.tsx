@@ -47,13 +47,7 @@ const CreateEditForm: FC<{
   videos: any[];
   steps: IStep[];
 }> = ({ teachers, positions, guards, submissions, steps }) => {
-  const handleSubmit = (values: Values, resetForm: () => void) => {
-    return Api.post(`/techniques`, values)
-      .then((response) => {
-        return resetForm();
-      })
-      .catch((error) => console.error(error));
-  };
+  const handleSubmit = (values: Values) => Api.post(`/techniques`, values);
   return (
     <Formik
       initialValues={{
@@ -70,10 +64,10 @@ const CreateEditForm: FC<{
         values: Values,
         { setSubmitting, resetForm }: FormikHelpers<Values>
       ) => {
-        const reset = () => resetForm();
         setSubmitting(true);
-        await handleSubmit(values, reset);
+        await handleSubmit(values);
         setSubmitting(false);
+        resetForm();
       }}
     >
       {({ values, errors, touched }) => (
