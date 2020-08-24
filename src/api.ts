@@ -13,6 +13,21 @@ export default class Api {
     return `${this.scheme}://${this.host}:${this.port}/${this.version}${path}`;
   }
 
+  static get(path: string): Promise<any> {
+    return fetch(this.URL(path), {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+      .then((response) => {
+        if (response.ok) return response.json();
+        return response;
+      })
+      .catch((error) => Sentry.captureException(error));
+  }
+
   static post(path: string, body: any): Promise<any> {
     return fetch(this.URL(path), {
       method: 'POST',

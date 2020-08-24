@@ -44,7 +44,7 @@ const CreateEditForm: FC<{
   positions: IPosition[];
   guards: IGuard[];
   submissions: ISubmission[];
-  videos: any[];
+  videos: never[];
   steps: IStep[];
 }> = ({ teachers, positions, guards, submissions, steps }) => {
   const handleSubmit = (values: Values) => Api.post(`/techniques`, values);
