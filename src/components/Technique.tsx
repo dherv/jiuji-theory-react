@@ -11,17 +11,19 @@ const Technique: FC<{
   name: string;
   teacher: string;
   position: string;
-  technique: string;
+  guard: string;
+  submission: string;
   selected: boolean;
   onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
-}> = ({ name, teacher, position, technique, selected, onClick }) => {
+}> = ({ name, teacher, position, guard, submission, selected, onClick }) => {
   return (
     <>
       <Container theme={selected && themeBlue} onClick={onClick}>
         <h5>{name}</h5>
         <StyledList>
           <StyledItem theme={themeBlue}>{teacher}</StyledItem>
-          <StyledItem theme={themeBlue}>{technique}</StyledItem>
+          <StyledItem theme={themeBlue}>{submission}</StyledItem>
+          <StyledItem theme={themeBlue}>{guard}</StyledItem>
           <StyledItem theme={themeBlue}>{position}</StyledItem>
         </StyledList>
       </Container>

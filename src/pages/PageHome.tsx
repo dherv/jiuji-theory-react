@@ -1,12 +1,42 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Api from '../api';
 import ErrorBoundary from '../components/ErrorBoundary';
 import Technique from '../components/Technique';
 import TemplatePage from '../templates/TemplatePage';
+import { ITechnique } from '../types/Technique.interface';
 import { ITechniqueNote } from '../types/TechniqueNote.interface';
 
-const PageHome: FC<{ techniques: ITechniqueNote[] }> = ({ techniques }) => {
+const PageHome: FC = () => {
+  const [techniques, setTechniques] = useState<ITechniqueNote[]>([]);
+
   const handleClick = () => {};
+
+  const fetchTechniques = (signal: AbortSignal) => {
+    return Api.get('/techniques', signal);
+  };
+  useEffect(() => {
+    const abortController = new AbortController();
+    fetchTechniques(abortController.signal).then((response) => {
+      const techniqueToNotes = response.techniques.map(
+        ({ id, teacher, guard, submission, position }: ITechnique) => {
+          return {
+            id,
+            teacher: teacher.name,
+            guard: guard.name,
+            submission: submission.name,
+            position: position.name.toLowerCase(),
+          };
+        }
+      );
+      setTechniques(techniqueToNotes);
+    });
+
+    return () => {
+      abortController.abort();
+    };
+  }, []);
+
   return (
     <ErrorBoundary>
       <TemplatePage>

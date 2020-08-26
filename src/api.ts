@@ -13,13 +13,15 @@ export default class Api {
     return `${this.scheme}://${this.host}:${this.port}/${this.version}${path}`;
   }
 
-  static get(path: string): Promise<any> {
+  static get(path: string, signal?: AbortSignal, headers?: any): Promise<any> {
     return fetch(this.URL(path), {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`,
+        ...headers,
       },
+      signal,
     })
       .then((response) => {
         if (response.ok) return response.json();

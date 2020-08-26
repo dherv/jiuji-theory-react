@@ -1,7 +1,8 @@
 export const TechniqueProps = {
-  name: 'triangle',
-  teacher: 'john',
+  name: 'test',
+  teacher: 'X',
   position: 'offensive',
-  technique: 'kimura',
+  submission: 'kimura',
+  guard: 'open guard',
   selected: true,
 };

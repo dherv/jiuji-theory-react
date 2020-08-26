@@ -11,10 +11,11 @@ const props = {
 
 test('should display the top component correctly', () => {
   render(<Technique {...props} />);
-  expect(screen.getByText('triangle')).toBeInTheDocument();
-  expect(screen.getByText('john')).toBeInTheDocument();
+  expect(screen.getByText('test')).toBeInTheDocument();
+  expect(screen.getByText('X')).toBeInTheDocument();
   expect(screen.getByText('offensive')).toBeInTheDocument();
   expect(screen.getByText('kimura')).toBeInTheDocument();
+  expect(screen.getByText('open guard')).toBeInTheDocument();
 });
 
 test('should hide content when selected false', async () => {
@@ -27,7 +28,7 @@ test('should call onClick prop', async () => {
   render(<Technique {...props} selected={false} />);
   expect(screen.queryByText('video title')).toBeNull();
   expect(screen.queryByText('video description')).toBeNull();
-  fireEvent.click(screen.getByText('triangle'));
+  fireEvent.click(screen.getByText('test'));
   expect(props.onClick).toHaveBeenCalledTimes(1);
 });
 

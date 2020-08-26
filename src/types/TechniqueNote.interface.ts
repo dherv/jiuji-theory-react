@@ -3,6 +3,7 @@ export interface ITechniqueNote {
   name: string;
   teacher: string;
   position: string;
-  technique: string;
+  guard: string;
+  submission: string;
   selected: boolean;
 }
