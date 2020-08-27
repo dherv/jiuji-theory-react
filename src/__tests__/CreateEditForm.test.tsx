@@ -143,10 +143,10 @@ test('should submit the form correctly', async () => {
   userEvent.click(screen.getByLabelText('offensive'));
   userEvent.click(screen.getByLabelText('X'));
   fireEvent.change(screen.getByLabelText('guard'), {
-    target: { value: 'open guard' },
+    target: { value: 1 },
   });
   fireEvent.change(screen.getByLabelText('submission'), {
-    target: { value: 'kimura' },
+    target: { value: 1 },
   });
   fireEvent.click(screen.getByText('+'));
   fireEvent.input(screen.getAllByPlaceholderText('enter a step')[1], {
@@ -155,8 +155,8 @@ test('should submit the form correctly', async () => {
 
   await waitFor(() => {
     expect(screen.queryByLabelText('name')).toHaveValue('technique name');
-    expect(screen.queryByLabelText('guard')).toHaveValue('open guard');
-    expect(screen.queryByLabelText('submission')).toHaveValue('kimura');
+    expect(screen.queryByLabelText('guard')).toHaveDisplayValue('open guard');
+    expect(screen.queryByLabelText('submission')).toHaveDisplayValue('kimura');
     expect(screen.queryByDisplayValue('step 2')).toBeInTheDocument();
     expect(screen.getByText('offensive').parentNode).toHaveStyleRule(
       'background-color',

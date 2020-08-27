@@ -16,8 +16,8 @@ const guards: IGuard[] = [
   { id: 2, name: 'half guard' },
 ];
 const submissions: ISubmission[] = [
-  { id: 1, name: 'triangle' },
-  { id: 2, name: 'kimura' },
+  { id: 1, name: 'kimura' },
+  { id: 2, name: 'triangle' },
 ];
 const videos: never[] = [];
 

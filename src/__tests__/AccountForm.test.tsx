@@ -43,7 +43,7 @@ describe('account form', () => {
       target: { value: 'new name' },
     });
     fireEvent.change(screen.getByLabelText('club'), {
-      target: { value: 'club 2' },
+      target: { value: 2 },
     });
     await waitFor(() => {
       expect(screen.queryByDisplayValue('new name')).toBeInTheDocument();

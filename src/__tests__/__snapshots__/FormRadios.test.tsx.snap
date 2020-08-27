@@ -13,19 +13,6 @@ exports[`should render a checked radio button 1`] = `
   padding: 0.5rem 1rem;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #1246F6;
-  background-color: rgba(18,70,246,0.10);
-  border: 1px solid transparent;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  padding: 0;
-  margin-right: 1rem;
-}
-
-.c3 {
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-  font-weight: 600;
   color: rgba(18,70,246,0.5);
   background-color: #fff;
   border: 1px solid rgba(18,70,246,0.5);
@@ -35,7 +22,7 @@ exports[`should render a checked radio button 1`] = `
   margin-right: 1rem;
 }
 
-.c3:hover {
+.c2:hover {
   background-color: rgba(18,70,246,0.10);
   border: 1px solid transparent;
 }
@@ -68,36 +55,36 @@ exports[`should render a checked radio button 1`] = `
           type="button"
         >
           <label
-            for="checked"
+            for="1_checked"
             style="display: block; padding: .5rem 1rem;"
           >
             checked
           </label>
         </button>
         <input
-          id="checked"
+          id="1_checked"
           name="name"
           style="display: none;"
           type="radio"
-          value="checked"
+          value="1"
         />
         <button
-          class="sc-AxjAm c3"
+          class="sc-AxjAm c2"
           type="button"
         >
           <label
-            for="unchecked"
+            for="2_unchecked"
             style="display: block; padding: .5rem 1rem;"
           >
             unchecked
           </label>
         </button>
         <input
-          id="unchecked"
+          id="2_unchecked"
           name="name"
           style="display: none;"
           type="radio"
-          value="unchecked"
+          value="2"
         />
       </div>
     </div>
@@ -132,19 +119,6 @@ exports[`should render an unchecked radio button 1`] = `
   border: 1px solid transparent;
 }
 
-.c3 {
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #1246F6;
-  background-color: rgba(18,70,246,0.10);
-  border: 1px solid transparent;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  padding: 0;
-  margin-right: 1rem;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -173,36 +147,36 @@ exports[`should render an unchecked radio button 1`] = `
           type="button"
         >
           <label
-            for="checked"
+            for="1_checked"
             style="display: block; padding: .5rem 1rem;"
           >
             checked
           </label>
         </button>
         <input
-          id="checked"
+          id="1_checked"
           name="name"
           style="display: none;"
           type="radio"
-          value="checked"
+          value="1"
         />
         <button
-          class="sc-AxjAm c3"
+          class="sc-AxjAm c2"
           type="button"
         >
           <label
-            for="unchecked"
+            for="2_unchecked"
             style="display: block; padding: .5rem 1rem;"
           >
             unchecked
           </label>
         </button>
         <input
-          id="unchecked"
+          id="2_unchecked"
           name="name"
           style="display: none;"
           type="radio"
-          value="unchecked"
+          value="2"
         />
       </div>
     </div>

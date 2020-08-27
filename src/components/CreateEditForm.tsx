@@ -47,7 +47,16 @@ const CreateEditForm: FC<{
   videos: never[];
   steps: IStep[];
 }> = ({ teachers, positions, guards, submissions, steps }) => {
-  const handleSubmit = (values: Values) => Api.post(`/techniques`, values);
+  const handleSubmit = (values: Values) =>
+    Api.post(`/techniques`, {
+      name: values.name,
+      guard: { id: Number(values.guard) },
+      position: { id: Number(values.position) },
+      teacher: { id: Number(values.teacher) },
+      submission: { id: Number(values.submission) },
+      steps: values.steps,
+      videos: values.videos,
+    });
   return (
     <Formik
       initialValues={{

@@ -20,14 +20,14 @@ const FormRadio: FC<{
       </FormLabel>
       <FormRadioGroup>
         {data.map((d: Data) => (
-          <Fragment key={d.id}>
+          <Fragment key={d.id + d.name}>
             <FormRadioButton
               type="button"
-              theme={selected === d.name ? themeBlue : themeBlueLight}
+              theme={Number(selected) === d.id ? themeBlue : themeBlueLight}
             >
               <label
                 style={{ display: 'block', padding: '.5rem 1rem' }}
-                htmlFor={d.name}
+                htmlFor={`${d.id}_${d.name}`}
               >
                 {d.name}
               </label>
@@ -35,9 +35,9 @@ const FormRadio: FC<{
 
             <Field
               type="radio"
-              value={d.name}
+              value={d.id}
               name={name}
-              id={d.name}
+              id={`${d.id}_${d.name}`}
               style={{ display: 'none' }}
             />
           </Fragment>

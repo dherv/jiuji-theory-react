@@ -16,7 +16,7 @@ const FormSelect: FC<{
         select an option
       </option>
       {data.map((d: Data) => (
-        <option key={d.id} value={d.name}>
+        <option key={d.id} value={d.id}>
           {d.name}
         </option>
       ))}
