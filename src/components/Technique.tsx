@@ -60,7 +60,7 @@ const Container = styled.div`
   font-weight: 600;
   font-size: 0.75rem;
   cursor: pointer;
-  border-bottom: 1px solid rgba(18, 70, 246, 0.1);
+  border-top: 1px solid rgba(18, 70, 246, 0.1);
 `;
 
 const Content = styled.div`
