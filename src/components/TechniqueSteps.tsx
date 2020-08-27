@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { IStep } from '../types/Step.interface';
 
-const TechniqueSteps: FC<{ steps: string[] }> = ({ steps }) => {
+const TechniqueSteps: FC<{ steps: IStep[] }> = ({ steps }) => {
   return (
     <ul>
       {steps.map((step, index) => (
-        <TechniqueStep key={index}>{step}</TechniqueStep>
+        <TechniqueStep key={index}>{step.text}</TechniqueStep>
       ))}
     </ul>
   );

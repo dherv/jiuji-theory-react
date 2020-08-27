@@ -1,3 +1,7 @@
 export const TechniqueStepsProps = {
-  steps: ['step 1', 'step 2', 'step 3'],
+  steps: [
+    { text: 'step 1', order: 1 },
+    { text: 'step 2', order: 2 },
+    { text: 'step 3', order: 3 },
+  ],
 };

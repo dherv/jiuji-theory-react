@@ -10,4 +10,5 @@ export interface ITechnique {
   position: IPosition;
   guard: IGuard;
   submission: ISubmission;
+  steps: [];
 }

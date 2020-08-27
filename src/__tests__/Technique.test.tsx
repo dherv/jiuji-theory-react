@@ -32,17 +32,6 @@ test('should call onClick prop', async () => {
   expect(props.onClick).toHaveBeenCalledTimes(1);
 });
 
-test.skip('should show the content when top component gets clicked', async () => {
-  render(<Technique {...props} selected={false} />);
-  expect(screen.queryByText('video title')).toBeNull();
-  expect(screen.queryByText('video description')).toBeNull();
-  fireEvent.click(screen.getByText('triangle'));
-  await waitFor(() => {
-    expect(screen.getByText('video title')).toBeInTheDocument();
-    expect(screen.getByText('video description')).toBeInTheDocument();
-  });
-});
-
 test('should render multiple videos', async () => {
   render(<Technique {...props} />);
   expect(screen.queryAllByTitle('video title')).toHaveLength(3);

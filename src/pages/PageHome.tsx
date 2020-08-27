@@ -7,10 +7,25 @@ import TemplatePage from '../templates/TemplatePage';
 import { ITechnique } from '../types/Technique.interface';
 import { ITechniqueNote } from '../types/TechniqueNote.interface';
 
+function useSelected(id: number | null, collection: any[]): boolean {
+  const [selected, setSelected] = useState<boolean>(false);
+  useEffect(() => {
+    setSelected(collection.some((item) => item.id === id));
+  }, [id, collection]);
+  return selected;
+}
+
 const PageHome: FC = () => {
   const [techniques, setTechniques] = useState<ITechniqueNote[]>([]);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const isSelected = useSelected(selectedId, techniques);
 
-  const handleClick = () => {};
+  const handleClick = (id: number) => {
+    setSelectedId((prev) => {
+      if (prev === id) return null;
+      return id;
+    });
+  };
 
   const fetchTechniques = (signal: AbortSignal) => {
     return Api.get('/techniques', signal);
@@ -19,13 +34,23 @@ const PageHome: FC = () => {
     const abortController = new AbortController();
     fetchTechniques(abortController.signal).then((response) => {
       const techniqueToNotes = response.techniques.map(
-        ({ id, teacher, guard, submission, position }: ITechnique) => {
+        ({
+          id,
+          name,
+          teacher,
+          guard,
+          submission,
+          position,
+          steps,
+        }: ITechnique) => {
           return {
             id,
+            name,
             teacher: teacher.name,
             guard: guard.name,
             submission: submission.name,
             position: position.name.toLowerCase(),
+            steps,
           };
         }
       );
@@ -43,7 +68,11 @@ const PageHome: FC = () => {
         <List>
           {techniques.map((technique: ITechniqueNote) => (
             <li key={technique.id}>
-              <Technique {...technique} onClick={handleClick} />
+              <Technique
+                {...technique}
+                onClick={handleClick}
+                selected={isSelected}
+              />
             </li>
           ))}
         </List>

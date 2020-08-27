@@ -1,3 +1,5 @@
+import { IStep } from './Step.interface';
+
 export interface ITechniqueNote {
   id: number;
   name: string;
@@ -6,4 +8,5 @@ export interface ITechniqueNote {
   guard: string;
   submission: string;
   selected: boolean;
+  steps: IStep[];
 }

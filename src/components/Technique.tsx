@@ -3,22 +3,38 @@ import styled from 'styled-components';
 import { TechniqueStepsProps } from '../samples/TechniqueSteps.sample';
 import { TechniqueVideoListProps } from '../samples/TechniqueVideoList.sample';
 import { themeBlue } from '../styled/themes';
+import { IStep } from '../types/Step.interface';
 import TechniqueButtons from './TechniqueButtons';
 import TechniqueSteps from './TechniqueSteps';
 import TechniqueVideoList from './TechniqueVideoList';
 
 const Technique: FC<{
+  id: number;
   name: string;
   teacher: string;
   position: string;
   guard: string;
   submission: string;
+  steps: IStep[];
   selected: boolean;
-  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
-}> = ({ name, teacher, position, guard, submission, selected, onClick }) => {
+  onClick: (id: number) => void;
+}> = ({
+  id,
+  name,
+  teacher,
+  position,
+  guard,
+  submission,
+  steps,
+  selected,
+  onClick,
+}) => {
+  const handleClick = () => {
+    onClick(id);
+  };
   return (
     <>
-      <Container theme={selected && themeBlue} onClick={onClick}>
+      <Container theme={selected && themeBlue} onClick={handleClick}>
         <h5>{name}</h5>
         <StyledList>
           <StyledItem theme={themeBlue}>{teacher}</StyledItem>
@@ -29,7 +45,7 @@ const Technique: FC<{
       </Container>
       {selected && (
         <Content>
-          <TechniqueSteps {...TechniqueStepsProps} />
+          <TechniqueSteps steps={steps} />
           <TechniqueVideoList {...TechniqueVideoListProps} />
           <TechniqueButtons />
         </Content>
