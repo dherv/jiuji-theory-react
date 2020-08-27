@@ -1,6 +1,6 @@
 import 'jest-styled-components';
 import React from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Technique from '../components/Technique';
 import { TechniqueProps } from '../samples/Technique.sample';
 
@@ -19,13 +19,13 @@ test('should display the top component correctly', () => {
 });
 
 test('should hide content when selected false', async () => {
-  render(<Technique {...props} selected={false} />);
+  render(<Technique {...props} isSelected={false} />);
   expect(screen.queryByText('video title')).toBeNull();
   expect(screen.queryByText('video description')).toBeNull();
 });
 
 test('should call onClick prop', async () => {
-  render(<Technique {...props} selected={false} />);
+  render(<Technique {...props} isSelected={false} />);
   expect(screen.queryByText('video title')).toBeNull();
   expect(screen.queryByText('video description')).toBeNull();
   fireEvent.click(screen.getByText('test'));

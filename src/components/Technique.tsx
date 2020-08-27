@@ -16,7 +16,7 @@ const Technique: FC<{
   guard: string;
   submission: string;
   steps: IStep[];
-  selected: boolean;
+  isSelected: boolean;
   onClick: (id: number) => void;
 }> = ({
   id,
@@ -26,7 +26,7 @@ const Technique: FC<{
   guard,
   submission,
   steps,
-  selected,
+  isSelected,
   onClick,
 }) => {
   const handleClick = () => {
@@ -34,7 +34,7 @@ const Technique: FC<{
   };
   return (
     <>
-      <Container theme={selected && themeBlue} onClick={handleClick}>
+      <Container theme={isSelected && themeBlue} onClick={handleClick}>
         <h5>{name}</h5>
         <StyledList>
           <StyledItem theme={themeBlue}>{teacher}</StyledItem>
@@ -43,7 +43,7 @@ const Technique: FC<{
           <StyledItem theme={themeBlue}>{position}</StyledItem>
         </StyledList>
       </Container>
-      {selected && (
+      {isSelected && (
         <Content>
           <TechniqueSteps steps={steps} />
           <TechniqueVideoList {...TechniqueVideoListProps} />

@@ -7,18 +7,9 @@ import TemplatePage from '../templates/TemplatePage';
 import { ITechnique } from '../types/Technique.interface';
 import { ITechniqueNote } from '../types/TechniqueNote.interface';
 
-function useSelected(id: number | null, collection: any[]): boolean {
-  const [selected, setSelected] = useState<boolean>(false);
-  useEffect(() => {
-    setSelected(collection.some((item) => item.id === id));
-  }, [id, collection]);
-  return selected;
-}
-
 const PageHome: FC = () => {
   const [techniques, setTechniques] = useState<ITechniqueNote[]>([]);
   const [selectedId, setSelectedId] = useState<number | null>(null);
-  const isSelected = useSelected(selectedId, techniques);
 
   const handleClick = (id: number) => {
     setSelectedId((prev) => {
@@ -71,7 +62,7 @@ const PageHome: FC = () => {
               <Technique
                 {...technique}
                 onClick={handleClick}
-                selected={isSelected}
+                isSelected={selectedId === technique.id}
               />
             </li>
           ))}

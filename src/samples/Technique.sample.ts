@@ -5,7 +5,7 @@ export const TechniqueProps = {
   position: 'offensive',
   submission: 'kimura',
   guard: 'open guard',
-  selected: true,
+  isSelected: true,
   steps: [
     { text: 'step 1', order: 1 },
     { text: 'step 2', order: 2 },
