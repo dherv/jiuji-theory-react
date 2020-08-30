@@ -1,13 +1,16 @@
-import React, { FC } from 'react';
+import React, { FC, useContext, useEffect } from 'react';
 import { MdArchive, MdEdit } from 'react-icons/md';
 import styled from 'styled-components';
 import { themeBlue } from '../styled/themes';
 import Button from './Button';
 
-const TechniqueButtons: FC = () => {
+const TechniqueButtons: FC<{ id: number; onClick: (id: number) => void }> = ({
+  id,
+  onClick,
+}) => {
   return (
     <StyledContainer>
-      <Button theme={themeBlue}>
+      <Button theme={themeBlue} onClick={() => onClick(id)}>
         <MdArchive title="technique-archive" />
       </Button>
       <Button theme={themeBlue}>

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useReducer, useState } from 'react';
 import styled from 'styled-components';
 import Api from '../api';
 import ErrorBoundary from '../components/ErrorBoundary';
@@ -7,9 +7,39 @@ import TemplatePage from '../templates/TemplatePage';
 import { ITechnique } from '../types/Technique.interface';
 import { ITechniqueNote } from '../types/TechniqueNote.interface';
 
+const initialTechniques: { techniques: ITechniqueNote[] } = { techniques: [] };
+
+const fetchTechniques = (signal: AbortSignal) => {
+  return Api.get('/techniques', signal);
+};
+
+const deleteTechnique = (id: number) => {
+  return Api.delete(`/techniques/${id}`);
+};
+
+const reducer = (
+  state: { techniques: ITechniqueNote[] },
+  action: { type: string; payload: any }
+) => {
+  switch (action.type) {
+    case 'fetchAll':
+      return { techniques: action.payload };
+    case 'delete': {
+      return {
+        ...state,
+        techniques: state.techniques.filter(
+          (technique) => technique.id !== action.payload.id
+        ),
+      };
+    }
+    default:
+      throw new Error();
+  }
+};
+
 const PageHome: FC = () => {
-  const [techniques, setTechniques] = useState<ITechniqueNote[]>([]);
   const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [state, dispatch] = useReducer(reducer, initialTechniques);
 
   const handleClick = (id: number) => {
     setSelectedId((prev) => {
@@ -18,34 +48,28 @@ const PageHome: FC = () => {
     });
   };
 
-  const fetchTechniques = (signal: AbortSignal) => {
-    return Api.get('/techniques', signal);
+  const handleClickArchive = (id: number) => {
+    deleteTechnique(id).then(({ technique }) =>
+      dispatch({ type: 'delete', payload: technique })
+    );
   };
+
   useEffect(() => {
     const abortController = new AbortController();
     fetchTechniques(abortController.signal).then((response) => {
       const techniqueToNotes = response.techniques.map(
-        ({
-          id,
-          name,
-          teacher,
-          guard,
-          submission,
-          position,
-          steps,
-        }: ITechnique) => {
+        (technique: ITechnique) => {
+          const { teacher, guard, submission, position } = technique;
           return {
-            id,
-            name,
+            ...technique,
             teacher: teacher.name,
             guard: guard.name,
             submission: submission.name,
             position: position.name.toLowerCase(),
-            steps,
           };
         }
       );
-      setTechniques(techniqueToNotes);
+      dispatch({ type: 'fetchAll', payload: techniqueToNotes });
     });
 
     return () => {
@@ -57,11 +81,12 @@ const PageHome: FC = () => {
     <ErrorBoundary>
       <TemplatePage>
         <List>
-          {techniques.map((technique: ITechniqueNote) => (
+          {state.techniques.map((technique: ITechniqueNote) => (
             <li key={technique.id}>
               <Technique
                 {...technique}
                 onClick={handleClick}
+                onClickArchive={handleClickArchive}
                 isSelected={selectedId === technique.id}
               />
             </li>

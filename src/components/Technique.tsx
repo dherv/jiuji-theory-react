@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { TechniqueStepsProps } from '../samples/TechniqueSteps.sample';
 import { TechniqueVideoListProps } from '../samples/TechniqueVideoList.sample';
 import { themeBlue } from '../styled/themes';
 import { IStep } from '../types/Step.interface';
@@ -18,6 +17,7 @@ const Technique: FC<{
   steps: IStep[];
   isSelected: boolean;
   onClick: (id: number) => void;
+  onClickArchive: (id: number) => void;
 }> = ({
   id,
   name,
@@ -28,10 +28,14 @@ const Technique: FC<{
   steps,
   isSelected,
   onClick,
+  onClickArchive,
 }) => {
   const handleClick = () => {
     onClick(id);
   };
+  const handleClickArchive = (techniqueId: number) =>
+    onClickArchive(techniqueId);
+
   return (
     <>
       <Container theme={isSelected && themeBlue} onClick={handleClick}>
@@ -47,7 +51,7 @@ const Technique: FC<{
         <Content>
           <TechniqueSteps steps={steps} />
           <TechniqueVideoList {...TechniqueVideoListProps} />
-          <TechniqueButtons />
+          <TechniqueButtons id={id} onClick={handleClickArchive} />
         </Content>
       )}
     </>

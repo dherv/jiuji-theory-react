@@ -45,4 +45,19 @@ export default class Api {
       })
       .catch((error) => Sentry.captureException(error));
   }
+
+  static delete(path: string, signal?: AbortSignal): Promise<any> {
+    return fetch(this.URL(path), {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+      .then((response) => {
+        if (response.ok) return response.json();
+        return response;
+      })
+      .catch((error) => Sentry.captureException(error));
+  }
 }

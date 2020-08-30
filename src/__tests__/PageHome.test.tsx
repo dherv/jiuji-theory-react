@@ -8,7 +8,7 @@ import PageHome from '../pages/PageHome';
 
 jest.mock('../components/ErrorBoundary');
 
-const server = setupServer(
+const handlers = [
   rest.get('http://localhost:3000/v1/techniques', (req, res, ctx) => {
     return res(
       ctx.json({
@@ -25,36 +25,50 @@ const server = setupServer(
         ],
       })
     );
-  })
-);
+  }),
+  rest.delete(`http://localhost:3000/v1/techniques/1`, (req, res, ctx) => {
+    return res(
+      ctx.json({
+        message: 'deleted',
+        technique: { id: 1 },
+      })
+    );
+  }),
+];
+const server = setupServer(...handlers);
+
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
-beforeEach(async () => {
+beforeEach(() => {
   render(<PageHome />);
-  await waitFor(() => {});
 });
 
 test('should render the layout header', async () => {
-  await waitFor(() => {
-    expect(screen.queryByRole('banner')).toBeInTheDocument();
-  });
+  const banner = await screen.findByRole('banner');
+  await waitFor(() => expect(banner).toBeInTheDocument());
 });
+
 test('should render techniques', async () => {
-  await waitFor(() => {
-    expect(screen.queryAllByText('kimura')).toHaveLength(1);
-    expect(screen.queryAllByText('test')).toHaveLength(1);
-  });
+  await waitFor(() => expect(screen.queryAllByText('kimura')).toHaveLength(1));
+  expect(screen.queryAllByText('test')).toHaveLength(1);
 });
 
 test('should show the content of an item when item is clicked', async () => {
+  await waitFor(() => expect(screen.queryByText('video title')).toBeNull());
+  expect(screen.queryByText('video description')).toBeNull();
+  userEvent.click(screen.getByText('test'));
+  await waitFor(() =>
+    expect(screen.queryAllByText('video title')).toHaveLength(3)
+  );
+  expect(screen.queryAllByText('video description')).toHaveLength(3);
+});
+
+test('click archive icon should delete the item', async () => {
+  const technique = await screen.findByText('test');
+  userEvent.click(technique);
+  userEvent.click(screen.getByTitle('technique-archive'));
   await waitFor(() => {
-    expect(screen.queryByText('video title')).toBeNull();
-    expect(screen.queryByText('video description')).toBeNull();
-    userEvent.click(screen.getByText('test'));
-  });
-  await waitFor(() => {
-    expect(screen.queryAllByText('video title')).toHaveLength(3);
-    expect(screen.queryAllByText('video description')).toHaveLength(3);
+    expect(screen.queryByText('test')).toBeNull();
   });
 });
