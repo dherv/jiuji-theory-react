@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
+import { action } from '@storybook/addon-actions';
 import TechniqueButtons from '../components/TechniqueButtons';
-import { TechniqueButtonsProps as propsData } from '../samples/TechniqueButtons.sample';
+import {
+  TechniqueButtonsProps as propsData,
+} from '../samples/TechniqueButtons.sample';
 
 export default {
   component: TechniqueButtons,
@@ -8,7 +11,9 @@ export default {
   excludeStories: /.*Data$/,
 };
 
-const actionsData = {};
+const actionsData = {
+  onClick: action('onClick'),
+};
 
 export const Default: FC = () => (
   <TechniqueButtons {...propsData} {...actionsData} />

@@ -11,9 +11,10 @@ export default {
 
 const actionsData = {
   onClick: action('onClick'),
+  onClickArchive: action('onClickArchive'),
 };
 
 export const Default: FC = () => (
-  <Technique {...propsData} {...actionsData} selected={false} />
+  <Technique {...propsData} {...actionsData} isSelected={false} />
 );
 export const Selected: FC = () => <Technique {...propsData} {...actionsData} />;

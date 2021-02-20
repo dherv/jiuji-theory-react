@@ -1,1 +1,3 @@
-export const TechniqueButtonsProps = {};
+export const TechniqueButtonsProps = {
+  id: 1
+};

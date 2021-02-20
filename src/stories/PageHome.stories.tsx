@@ -8,6 +8,4 @@ export default {
   excludeStories: /.*Data$/,
 };
 
-const actionsData = {};
-
-export const Default: FC = () => <PageHome {...propsData} {...actionsData} />;
+export const Default: FC = () => <PageHome />;

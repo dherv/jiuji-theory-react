@@ -12,7 +12,7 @@ export default {
   parameters: {
     formik: {
       initialValues: {
-        steps: [{ name: 'step 1' }],
+        steps: [{ text: 'step 1', order: 1 }],
       },
     },
   },
@@ -23,7 +23,10 @@ const actionsData = {
 };
 
 export const Default: FC = () => (
-  <Formik initialValues={{ steps: [{ name: 'step 1' }] }} {...actionsData}>
+  <Formik
+    initialValues={{ steps: [{ text: 'step 1', order: 1 }] }}
+    {...actionsData}
+  >
     {({ values }) => (
       <Form>
         <FormSteps values={values} />
