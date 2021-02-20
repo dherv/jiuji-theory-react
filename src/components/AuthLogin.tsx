@@ -1,5 +1,6 @@
 import { Form, Formik, FormikHelpers } from 'formik';
 import React, { FC } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import * as Yup from 'yup';
 import Api from '../api';
 import { themeBlue } from '../styled/themes';
@@ -23,6 +24,8 @@ const SignupSchema = Yup.object().shape({
 });
 
 const AuthLogin: FC = () => {
+  const history = useHistory();
+
   const handleSubmit = (values: Values) => Api.post(`/auth/login`, values);
 
   return (
@@ -38,8 +41,9 @@ const AuthLogin: FC = () => {
       ) => {
         setSubmitting(true);
         const { token } = await handleSubmit(values);
-        setSubmitting(false);
         localStorage.setItem('token', token);
+        history.push('/');
+        setSubmitting(false);
         resetForm();
       }}
     >
