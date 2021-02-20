@@ -1,6 +1,6 @@
 import { Form, Formik, FormikHelpers } from 'formik';
 import React, { FC } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 import Api from '../api';
 import { themeBlue } from '../styled/themes';

@@ -5,6 +5,7 @@ import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import AuthLogin from '../components/AuthLogin';
 import { AuthLoginProps as props } from '../samples/AuthLogin.sample';
+import { MemoryRouter } from 'react-router-dom';
 
 const server = setupServer(
   rest.post('http://localhost:3000/v1/auth/login', (req, res, ctx) => {
@@ -15,7 +16,7 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 beforeEach(() => {
-  render(<AuthLogin {...props} />);
+  render(<MemoryRouter><AuthLogin {...props} /></MemoryRouter>);
 });
 
 test('should render AuthLogin with email and password', () => {

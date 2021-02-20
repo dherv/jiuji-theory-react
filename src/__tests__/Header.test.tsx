@@ -3,9 +3,10 @@ import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import Header from '../components/Header';
 import { HeaderProps as props } from '../samples/Header.sample';
+import { MemoryRouter } from 'react-router-dom';
 
 beforeEach(() => {
-  render(<Header {...props} />);
+  render(<MemoryRouter><Header {...props} /></MemoryRouter>);
 });
 
 test('should render the header title', () => {

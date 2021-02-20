@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
 const HeaderNav: FC = () => {
