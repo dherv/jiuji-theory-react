@@ -1,13 +1,13 @@
-import React, { FC, useEffect, useReducer, useState } from 'react';
+import React, {FC, useEffect, useReducer, useState} from 'react';
 import styled from 'styled-components';
 import Api from '../api';
 import ErrorBoundary from '../components/ErrorBoundary';
 import Technique from '../components/Technique';
 import TemplatePage from '../templates/TemplatePage';
-import { ITechnique } from '../types/Technique.interface';
-import { ITechniqueNote } from '../types/TechniqueNote.interface';
+import {ITechnique} from '../types/Technique.interface';
+import {ITechniqueNote} from '../types/TechniqueNote.interface';
 
-const initialTechniques: { techniques: ITechniqueNote[] } = { techniques: [] };
+const initialTechniques: { techniques: ITechniqueNote[] } = {techniques: []};
 
 const fetchTechniques = (signal: AbortSignal) => {
   return Api.get('/techniques', signal);
@@ -23,7 +23,7 @@ const reducer = (
 ) => {
   switch (action.type) {
     case 'fetchAll':
-      return { techniques: action.payload };
+      return {techniques: action.payload};
     case 'delete': {
       return {
         ...state,
@@ -49,8 +49,8 @@ const PageHome: FC = () => {
   };
 
   const handleClickArchive = (id: number) => {
-    deleteTechnique(id).then(({ technique }) =>
-      dispatch({ type: 'delete', payload: technique })
+    deleteTechnique(id).then(({technique}) =>
+      dispatch({type: 'delete', payload: technique})
     );
   };
 
@@ -59,7 +59,7 @@ const PageHome: FC = () => {
     fetchTechniques(abortController.signal).then((response) => {
       const techniqueToNotes = response.techniques.map(
         (technique: ITechnique) => {
-          const { teacher, guard, submission, position } = technique;
+          const {teacher, guard, submission, position} = technique;
           return {
             ...technique,
             teacher: teacher.name,
@@ -69,7 +69,7 @@ const PageHome: FC = () => {
           };
         }
       );
-      dispatch({ type: 'fetchAll', payload: techniqueToNotes });
+      dispatch({type: 'fetchAll', payload: techniqueToNotes});
     });
 
     return () => {
@@ -80,7 +80,7 @@ const PageHome: FC = () => {
   return (
     <ErrorBoundary>
       <TemplatePage>
-        <List>
+        {state.techniques.length > 0 ? <List>
           {state.techniques.map((technique: ITechniqueNote) => (
             <li key={technique.id}>
               <Technique
@@ -91,11 +91,21 @@ const PageHome: FC = () => {
               />
             </li>
           ))}
-        </List>
+        </List> : <StyledMessage>Add a few techniques to start using the app</StyledMessage>}
       </TemplatePage>
     </ErrorBoundary>
   );
 };
+
+const StyledMessage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  width: 100%;
+  height: calc(100vh - 52px);
+`;
 
 const List = styled.ul`
   max-width: 440px;
